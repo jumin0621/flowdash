@@ -1,0 +1,159 @@
+.board {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 22px;
+}
+
+.todo-card,
+.progress-card,
+.done-card {
+	box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+	backdrop-filter: blur(8px);
+	height: 440px;
+	width: 360px;
+}
+
+.card-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #4b2cff;
+}
+
+.card-title {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-weight: 800;
+	font-size: 15px;
+}
+
+.card-title > span:first-child {
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.card-title .count {
+	min-width: 32px;
+	min-height: 20px;
+	padding: 2px 8px;
+	font-size: 12px;
+	font-weight: 400;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 15px;
+	border: 1px solid #e8e9f0;
+}
+
+.del-all {
+	border: 0;
+	background: transparent;
+	color: #e45774;
+	font-weight: 700;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+/* 카드안쪽 */
+.task {
+	position: relative;
+	border: 1px solid #4b2cff;
+	border-radius: 10px;
+	padding: 12px 12px 10px;
+	position: relative;
+	overflow: hidden;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.task::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 5px;
+	height: 100%;
+	background: #4b2cff;
+}
+
+.task-top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.badge {
+	display: inline-flex;
+	align-items: center;
+	height: 18px;
+	padding: 0 8px;
+	border-radius: 15px;
+	font-size: 11px;
+	font-weight: 800;
+	color: #4b2cff;
+	background: rgba(102, 88, 255, 0.15);
+}
+
+.close {
+	font-size: 15px;
+	width: 25px;
+	height: 25px;
+	border-radius: 8px;
+	border: 0;
+	background: none;
+	cursor: pointer;
+	font-weight: 800;
+	color: #666;
+}
+.task-title {
+	font-weight: 500;
+	font-size: 20px;
+	margin: 0 0 6px;
+}
+.task-desc {
+	margin: 0 0 8px;
+	font-size: 15px;
+	font-weight: 400;
+	color: #666;
+	line-height: 1.35;
+}
+.task-date {
+	font-size: 12px;
+	line-height: 1.2;
+	color: #888;
+}
+
+/* 새할일 */
+.toolbar {
+	display: flex;
+}
+
+.add {
+	align-items: center;
+	padding: 10px 16px;
+	border: 0;
+	border-radius: 50px;
+	background: #6cb6ff;
+	color: #fff;
+	font-weight: 700;
+	font-size: 14px;
+	cursor: pointer;
+	box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease,
+		background 0.2s ease;
+}
+
+.add:hover {
+	background: #4d9cf7;
+	box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+	transform: translateY(-1px);
+}
+
+.add:active {
+	transform: translateY(0);
+	box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+}
