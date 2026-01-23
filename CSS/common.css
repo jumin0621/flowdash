@@ -17,11 +17,296 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: 18px;
+    position: relative;
+    z-index: 1;
 }
 
 .box {
 	background: #fff;
-	border: 1px solid #e6e8ef;
+	border: 2px solid #eee7ff;
 	border-radius: 14px;
 	padding: 16px;
+    box-shadow: 0 16px 38px rgba(20, 16, 40, .08);
+    
+    transition: transform 0.16s ease, 
+                box-shadow 0.16s ease, 
+                border-color 0.16s ease;
 }
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(20, 16, 40, 0.15);
+}
+
+/* ============ Background image layer ============ */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background: center/cover no-repeat;
+}
+
+body:not(.dark)::before {
+    background-image:
+        linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.4)),
+        url("../img/light.png");
+}
+
+body.dark::before {
+    background-image:
+        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.4)),
+        url("../img/dark.png");
+}
+
+/* ============ Header ============ */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+}
+
+.greeting {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.greeting-title {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 8px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.greeting-sub {
+    font-size: 12px;
+    color: #777;
+}
+
+/* Nickname (inline edit) */
+.nickname-wrap {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+}
+
+/* 닉네임 텍스트 */
+#nicknameText {
+    color: #8B7DFF;
+}
+
+/* 클릭해서 바로 수정 가능한 상태를 위한 클래스 */
+.nickname-text {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 8px;
+    cursor: text;
+    outline: none;
+    border: 1px solid transparent;
+}
+
+/* 편집 중(포커스) 표시 */
+.nickname-text.is-editing {
+    background: rgba(139, 125, 255, 0.10);
+    border-color: rgba(139, 125, 255, 0.35);
+}
+
+.nickname-icon {
+    font-size: 20px;
+    opacity: 0.8;
+    user-select: none;
+    pointer-events: none; /* 클릭/포커스 불가 */
+
+    animation: none;
+}
+
+.nickname-wrap:hover .nickname-icon {
+    animation: pencilMultiRotate5s 3s linear infinite;
+}
+
+@keyframes pencilMultiRotate5s {
+    0% {
+        transform: rotate(0deg);
+    }
+    60% {
+        transform: rotate(1080deg); 
+    }
+    100% {
+        transform: rotate(1080deg);
+    }
+}
+
+
+/* Buttons  */
+.togg-icon-btn,
+.btn {
+    border: 1px solid #e6e8ef;
+    border-radius: 10px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* 테마 토글 */
+.togg-icon-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+
+    animation: softGlow 3.5s ease-in-out infinite;
+}
+
+@keyframes softGlow {
+    0% {
+        box-shadow:
+            0 0 0 rgba(140, 120, 255, 0.0),
+            0 0 0 rgba(140, 120, 255, 0.0);
+    }
+    50% {
+        box-shadow:
+            0 0 12px rgba(140, 120, 255, 0.25),
+            0 0 24px rgba(140, 120, 255, 0.15);
+    }
+    100% {
+        box-shadow:
+            0 0 0 rgba(140, 120, 255, 0.0),
+            0 0 0 rgba(140, 120, 255, 0.0);
+    }
+}
+
+/* 일반 버튼 */
+.btn {
+    height: 44px;
+    font-weight: 700;
+    background: #eef1ff;
+}
+
+
+/* ============ Motivation ============ */
+.progressCard {
+    padding: 24px 20px;
+}
+
+/* 오늘도 한 걸음 타이틀 */
+.progressHeader {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* 오늘의 다짐 박스 */
+.myLineBox {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #e6e8ef;
+    border-radius: 12px;
+    padding: 8px 12px;
+    background: #fff;
+}
+.myLineInput {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 23px;
+    font-weight: 1000;
+}
+
+.myLineInput::placeholder {
+    color: #c7cbd8;      
+    opacity: 1;          
+}
+
+
+.myLineActions {
+    display: flex;
+    gap: 10px
+}
+
+.pill-btn {
+    border: 1px solid #e6e8ef;
+    border-radius: 999px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+	height: 40px;
+    font-size: 15px;
+    font-weight: 600;
+}
+.pill-btn-primary {
+    background: #6CB6FF;
+    color: #fff;
+}
+
+/* 명언 */
+.quoteLine {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.quoteLineText,
+.quoteLineMeta {
+    font-size: 16px;
+    color: #757272;
+
+}
+
+.quoteLineText {
+    white-space: nowrap;       
+    overflow: hidden;           
+    text-overflow: ellipsis;    
+    max-width: 75%;             
+}
+
+/* 달성률 게이지바 */
+.progressRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 14px;
+    padding: 0;
+}
+.progressBar {
+    position: relative;
+    flex: 1;
+    height: 20px;
+    border-radius: 999px;
+    background: #e9ecf5; 
+    overflow: visible;
+}
+
+/* 채워지는 게이지 바 */
+.progressFill {
+    height: 100%;
+    width: 0%;
+    border-radius: 999px;
+    background: linear-gradient(
+        90deg,
+        #82B6FF 0%,
+        #816BFF 100%
+    );
+} 
+
+/* 토끼 아이콘 */
+.progressChar {
+    position: absolute;
+    top: -31px;
+    transform: translateX(-50%);
+    left: 0%;
+    padding-left: 20px;
+    font-size: 25px;
+}
+
+
+
