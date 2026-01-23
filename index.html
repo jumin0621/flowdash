@@ -1,5 +1,72 @@
 <!doctype html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <main class="container">
+      <!-- 코드작성 -->
+      <!-- 대시 보드 -->
+      <section class="summary">
+        <div class="stat">
+          <div class="stat-line"></div>
+          <div class="stat-label">Total Tasks</div>
+          <div class="stat-value totalCount">0</div>
+        </div>
+        <div class="stat">
+          <div class="stat-line todoline"></div>
+          <div class="stat-label">To Do</div>
+          <div class="stat-value todoCount">0</div>
+        </div>
+        <div class="stat">
+          <div class="stat-line progressline"></div>
+          <div class="stat-label">In Progress</div>
+          <div class="stat-value progressCount">0</div>
+        </div>
+        <div class="stat bot-left">
+          <div class="stat-line doneline"></div>
+          <div class="stat-label">Done</div>
+          <div class="stat-value doneCount">0</div>
+        </div>
+        <div class="stat bot-right">
+          <div class="stat-line achievementline"></div>
+          <div class="stat-label">Achievement</div>
+          <div class="stat-value achCount">-</div>
+        </div>
+      </section>
+      <!-- 할 일 검색 필터 정렬 -->
+      <section class="box sorting">
+        <div class="search-wrap">
+          <input
+            class="sort search"
+            type="text"
+            placeholder="할 일 검색 . . ."
+          />
+        </div>
+        <select class="sort select-filter">
+          <option value="total">전체: 기간</option>
+          <option value="today">오늘</option>
+          <option value="7day">7일</option>
+        </select>
+        <select class="sort priority-filter">
+          <option value="priority">전체 우선순위</option>
+          <option value="height">높음</option>
+          <option value="middle">보통</option>
+          <option value="low">낮음</option>
+        </select>
+        <select class="sort title-sort">
+          <option value="up-sort">정렬: 제목 오름차순</option>
+          <option value="down-sort">정렬: 제목내림차순</option>
+        </select>
+        <button class="sort add-btn">+ 새 할 일</button>
+      </section>
+    </main>
+  </body>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
