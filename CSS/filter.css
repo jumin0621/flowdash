@@ -1,0 +1,42 @@
+/* 검색, 정렬 필터 */
+.sorting {
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr 1fr auto;
+	gap: 12px;
+}
+.sort {
+	height: 40px;
+	padding-left: 5px;
+	border-radius: 24px;
+	border: 1px solid #e6e8ef;
+	font-size: 16px;
+}
+.search-wrap {
+	position: relative;
+}
+.search-wrap::after {
+	content: "🔍";
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	left: 14px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.search {
+	width: 100%;
+	padding-left: 45px;
+	padding-right: 20px;
+}
+.search:focus::placeholder {
+	color: transparent;
+}
+.add-btn {
+	padding: 0 20px;
+	background-color: #8b7dff;
+	color: #fff;
+	transition: background-color 0.3s ease-in-out;
+}
+.add-btn:hover {
+	background-color: #7566f0;
+}
