@@ -77,8 +77,7 @@ body.dark::before {
     display: flex;
     justify-content: left;
     align-items: center;
-    gap: 8px;
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 600;
 }
 
@@ -90,7 +89,6 @@ body.dark::before {
 /* Nickname (inline edit) */
 .nickname-wrap {
     display: inline-flex;
-    gap: 6px;
     align-items: center;
 }
 
@@ -113,9 +111,21 @@ body.dark::before {
 .nickname-text.is-editing {
     background: rgba(139, 125, 255, 0.10);
     border-color: rgba(139, 125, 255, 0.35);
+    outline: 2px dashed currentColor;
+    user-select: text;
+    cursor: text;
+}
+
+/* 닉네임 편집 중 점선/테두리 제거 */
+.nickname-text.is-editing,
+.nickname-text[contenteditable="true"] {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
 }
 
 .nickname-icon {
+    padding-left: 5px;
     font-size: 20px;
     opacity: 0.8;
     user-select: none;
@@ -155,8 +165,8 @@ body.dark::before {
 
 /* 테마 토글 */
 .togg-icon-btn {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     font-size: 25px;
 
     animation: softGlow 3.5s ease-in-out infinite;
@@ -199,12 +209,13 @@ body.dark::before {
     display: flex;
     justify-content: left;
     align-items: center;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
 }
 
 /* 오늘의 다짐 박스 */
 .myLineBox {
+    position: relative;
     margin-bottom: 15px;
     display: flex;
     align-items: center;
@@ -213,23 +224,66 @@ body.dark::before {
     padding: 8px 12px;
     background: #fff;
 }
+
 .myLineInput {
     flex: 1;
     border: none;
     outline: none;
-    font-size: 23px;
-    font-weight: 1000;
+
+    font-size: 19px;
+    font-weight: 500;
+    color: #6B6FA8;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 0 16px;
+    padding-right: 190px; /* ✅ 버튼 영역 만큼 확보 */
+    text-align: center;   /* ✅ 박스 기준 중앙 */
 }
 
 .myLineInput::placeholder {
-    color: #c7cbd8;      
-    opacity: 1;          
+    color: #c7cbd8;
+    opacity: 1;
 }
 
+/* ✅ 저장 박스 효과는 제거 유지 */
+.myLineInput.is-saved {
+    border-color: inherit;
+    box-shadow: none;
+}
+
+/* ✅ 저장되면 가운데 정렬 + 패딩이 줄어들며 “중앙으로 미끄러지는 느낌” */
+.myLineInput.is-centered {
+    text-align: center;
+    font-weight: 600;
+    padding: 0 16px; 
+    color: #7B7FFF;
+}
+
+/* (선택) 다시 수정 시작하면 왼쪽으로 복귀시키고 싶을 때 */
+.myLineInput.is-editing {
+    text-align: left;
+    font-weight: 500;
+    padding-left: 12px;
+    padding-right: 12px;
+}
 
 .myLineActions {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
-    gap: 10px
+    align-items: center;
+    gap: 10px;
+}
+
+/* 상태 텍스트를 가운데 정렬 느낌으로 */
+.myLineStatus {
+    justify-self: center; /* 가운데로 */
+    text-align: center;
+    min-width: 70px; /* 흔들림 방지 (선택) */
 }
 
 .pill-btn {
@@ -240,10 +294,11 @@ body.dark::before {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-	height: 40px;
+    height: 40px;
     font-size: 15px;
     font-weight: 600;
 }
+
 .pill-btn-primary {
     background: #6CB6FF;
     color: #fff;
@@ -257,7 +312,7 @@ body.dark::before {
 }
 .quoteLineText,
 .quoteLineMeta {
-    font-size: 16px;
+    font-size: 14px;
     color: #757272;
 
 }
