@@ -300,7 +300,7 @@ function fillForm(todo) {
 	setPriority(todo.priority);
 }
 
-// 폼 제출(Create/Update)
+// 화면 폼 보내기
 todoForm.addEventListener("submit", function (e) {
 	e.preventDefault();
 
@@ -320,18 +320,18 @@ todoForm.addEventListener("submit", function (e) {
 	closeModal();
 });
 
-// 보드에서 클릭 이벤트(삭제 / 수정 열기) - 이벤트 위임
+// 이벤트 위임
 document.querySelector(".board-wrap").addEventListener("click", function (e) {
 	const target = e.target;
 
-	// (1) X 삭제 버튼
+	// 리스트 우측 X 삭제 버튼
 	if (target.classList.contains("close")) {
 		const task = target.closest(".task");
 		deleteTodo(task.dataset.id);
 		return;
 	}
 
-	// (2) task 클릭하면 수정 모달 열기
+	// 리스트 클릭하면 수정 모달 열기
 	const task = target.closest(".task");
 	if (!task) return;
 
@@ -343,7 +343,7 @@ document.querySelector(".board-wrap").addEventListener("click", function (e) {
 	openModal("edit");
 });
 
-// 컬럼 전체 삭제 버튼
+// 할일,진행중,완료 상태별 전체 삭제
 todoBoard.querySelector(".del-all").addEventListener("click", function () {
 	deleteAllByStatus("todo");
 });
@@ -354,12 +354,6 @@ doneBoard.querySelector(".del-all").addEventListener("click", function () {
 	deleteAllByStatus("done");
 });
 
-// ===== 모달 열기용 버튼(선택) =====
-// 만약 HTML에 <button id="openModalBtn">...</button> 만들었으면 자동 연결됨
-
-// =========================
-// 초기 실행
-// =========================
 loadTodos();
 render();
-closeModal(); // 시작할 때 모달 닫아두기
+closeModal();
