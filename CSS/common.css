@@ -1,4 +1,6 @@
-/* 기본셋팅 */
+/* ============== 
+		공통 설정
+============== */
 body {
 	font-family:
 		system-ui,
@@ -17,8 +19,8 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: 18px;
-    position: relative;
-    z-index: 1;
+	position: relative;
+	z-index: 1;
 }
 
 .box {
@@ -362,6 +364,3 @@ body.dark::before {
     padding-left: 20px;
     font-size: 25px;
 }
-
-
-
