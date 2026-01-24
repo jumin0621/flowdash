@@ -1,0 +1,20 @@
+/* ============ Background image layer ============ */
+body::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: -2;
+	background: center/cover no-repeat;
+}
+
+body:not(.dark)::before {
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.4)),
+		url("../img/light.png");
+}
+
+body.dark::before {
+	background-image:
+		linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
+		url("../img/dark.png");
+}
