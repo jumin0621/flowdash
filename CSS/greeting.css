@@ -93,29 +93,37 @@
 
 /* 테마 토글 */
 .togg-icon-btn {
-	width: 50px;
-	height: 50px;
-	font-size: 25px;
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
 
-	animation: softGlow 3.5s ease-in-out infinite;
+    animation: none;
+	transition: transform 0.25s ease; 
 }
 
+/* hover 시 효과 */
+.togg-icon-btn:hover {
+    animation: softGlow 2s ease-in-out infinite;
+	transform: translate(-4px, 4px) rotate(8deg);
+}
+
+
 @keyframes softGlow {
-	0% {
-		box-shadow:
-			0 0 0 rgba(140, 120, 255, 0),
-			0 0 0 rgba(140, 120, 255, 0);
-	}
-	50% {
-		box-shadow:
-			0 0 12px rgba(140, 120, 255, 0.25),
-			0 0 24px rgba(140, 120, 255, 0.15);
-	}
-	100% {
-		box-shadow:
-			0 0 0 rgba(140, 120, 255, 0),
-			0 0 0 rgba(140, 120, 255, 0);
-	}
+    0% {
+        box-shadow:
+            0 0 0 rgba(255, 215, 0, 0),
+            0 0 0 rgba(255, 215, 0, 0);
+    }
+    50% {
+        box-shadow:
+            0 0 12px rgba(255, 215, 0, 0.45),
+            0 0 24px rgba(255, 215, 0, 0.25);
+    }
+    100% {
+        box-shadow:
+            0 0 0 rgba(255, 215, 0, 0),
+            0 0 0 rgba(255, 215, 0, 0);
+    }
 }
 
 /* 일반 버튼 */

@@ -18,3 +18,155 @@ body.dark::before {
 		linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
 		url("../img/dark.png");
 }
+
+
+/* ============ Dark Mode ============ */
+/* 다크 테마 변수 */
+body.dark {
+    --bg: #0E1024;                   /* 전체 배경색 */
+    --text: #F2F4FF;                 /* 기본 글자색 */
+
+    --card: #171A3A;                 /* 큰 카드(박스) 배경색 */
+    --card-border: #3E4299;          /* 큰 카드 테두리색 */
+    --card-shadow: 0 12px 28px rgba(0, 0, 0, 0.55); /* 큰 카드 그림자 */
+
+    --field: #20245A;                /* 입력/필드 배경색 */
+    --task: #2A2F78;                 /* 할 일 카드 배경색 */
+    --task-border: #4C52B3;          /* 할 일 카드 테두리색 */
+    --task-shadow: 0 10px 24px rgba(0, 0, 0, 0.50); /* 할 일 카드 그림자 */
+
+    --muted: #C9CCFF;                /* 보조 텍스트 색 */
+    --placeholder: #B9BDF2;          /* placeholder 색 */
+
+    --primary: #2f8fee;              /* 강조 버튼 색 */
+}
+
+/* 전체 화면 다크 적용 */
+body.dark {
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* 큰 컨테이너 카드 공통 */
+body.dark .box,
+body.dark .todo-card,
+body.dark .progress-card,
+body.dark .done-card,
+body.dark .sorting,
+body.dark .summary .stat {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
+}
+
+/* 오늘의 다짐 박스 */
+body.dark .myLineBox {
+    background: var(--field);
+    border: 1px solid var(--card-border);
+}
+
+/* 오늘의 다짐 input */
+body.dark #myLineInput.myLineInput,
+body.dark .myLineInput {
+    background: transparent;
+    color: var(--text);
+    -webkit-text-fill-color: var(--text);
+    caret-color: var(--text);
+}
+
+/* 오늘의 다짐 placeholder */
+body.dark #myLineInput.myLineInput::placeholder,
+body.dark .myLineInput::placeholder {
+    color: var(--placeholder);
+    opacity: 1;
+}
+
+/* 오늘의 다짐 저장 상태 */
+body.dark #myLineInput.myLineInput.is-centered,
+body.dark .myLineInput.is-centered {
+    color: #c3bef2;
+    -webkit-text-fill-color: #c3bef2;
+    caret-color: #c3bef2;
+}
+
+/* 할 일 카드 */
+body.dark .task {
+    background: var(--task);
+    border: 1px solid var(--task-border);
+    box-shadow: var(--task-shadow);
+}
+
+/* 할 일 카드 텍스트 */
+body.dark .task-title {
+    color: var(--text);
+}
+
+body.dark .task-desc,
+body.dark .task-date p,
+body.dark .empty p,
+body.dark .quoteLineText,
+body.dark .quoteLineMeta,
+body.dark .myLineStatus {
+    color: var(--muted);
+}
+
+/* 검색/필터/정렬 */
+body.dark .sorting input,
+body.dark .sorting select {
+    background: var(--field);
+    border: 1px solid var(--card-border);
+    color: var(--text);
+}
+
+body.dark .sorting input::placeholder {
+    color: var(--placeholder);
+}
+
+body.dark select,
+body.dark option {
+    background: var(--field);
+    color: var(--text);
+}
+
+/* 구분선/추가줄 */
+body.dark hr,
+body.dark .addTodo,
+body.dark .add-todo,
+body.dark .addTodoBar,
+body.dark .add-todo-bar,
+body.dark .divider,
+body.dark .separator,
+body.dark .line {
+    background: var(--card);
+    color: var(--text);
+    border-color: var(--card-border);
+}
+
+/* 버튼 공통 */
+body.dark .pill-btn,
+body.dark .del-all,
+body.dark .btn {
+    background: var(--field);
+    border: 1px solid var(--card-border);
+    color: var(--text);
+}
+
+/* 다크모드 토글 버튼 */
+body.dark .togg-icon-btn {
+    background: var(--task);              
+    border: 1px solid var(--task-border);
+    color: var(--text);                   
+}
+
+
+/* 강조 버튼 */
+body.dark .pill-btn-primary,
+body.dark .sorting .add-btn {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+/* 게이지 바 */
+body.dark .progressBar {
+    background: var(--field);
+}
