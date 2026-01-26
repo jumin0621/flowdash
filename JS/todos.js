@@ -298,11 +298,6 @@ function deleteTodo(id) {
 		saveTodos();
 		render();
 	}
-	if (confirm("삭제하시겠습니까?")) {
-		todos = todos.filter((t) => t.id !== id);
-		saveTodos();
-		render();
-	}
 }
 
 // =========================
