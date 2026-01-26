@@ -240,8 +240,8 @@ body.dark::before {
     box-sizing: border-box;
 
     padding: 0 16px;
-    padding-right: 190px; /* ✅ 버튼 영역 만큼 확보 */
-    text-align: center;   /* ✅ 박스 기준 중앙 */
+    padding-right: 190px; 
+    text-align: left;
 }
 
 .myLineInput::placeholder {
@@ -261,6 +261,7 @@ body.dark::before {
     font-weight: 600;
     padding: 0 16px; 
     color: #7B7FFF;
+    text-align: center;
 }
 
 /* (선택) 다시 수정 시작하면 왼쪽으로 복귀시키고 싶을 때 */
