@@ -1,5 +1,4 @@
 import { updateDashCount } from "./dashboard.js";
-
 import { LS_KEYS } from "./store.js";
 
 // =========================
@@ -120,11 +119,6 @@ function formDate(timestamp) {
 	const hh = String(now.getHours()).padStart(2, "0");
 	const mi = String(now.getMinutes()).padStart(2, "0");
 	return `${yyyy}.${mm}.${dd} ${hh}:${mi}`;
-	const now = new Date(timestamp);
-	const yyyy = now.getFullYear();
-	const mm = String(now.getMonth() + 1).padStart(2, "0");
-	const dd = String(now.getDate()).padStart(2, "0");
-	return `${yyyy}.${mm}.${dd}`;
 }
 
 // =========================
@@ -195,16 +189,8 @@ function render() {
 	todoBoard.querySelectorAll(".task").forEach((el) => el.remove());
 	doingBoard.querySelectorAll(".task").forEach((el) => el.remove());
 	doneBoard.querySelectorAll(".task").forEach((el) => el.remove());
-	// 기존 task 싹 지우기
-	todoBoard.querySelectorAll(".task").forEach((el) => el.remove());
-	doingBoard.querySelectorAll(".task").forEach((el) => el.remove());
-	doneBoard.querySelectorAll(".task").forEach((el) => el.remove());
 
 	// 상태별로 나눠서 담기
-	const todoList = todos.filter((t) => t.status === "todo");
-	const doingList = todos.filter((t) => t.status === "doing");
-	const doneList = todos.filter((t) => t.status === "done");
-	// 상태별로 나눠서 추가
 	const todoList = todos.filter((t) => t.status === "todo");
 	const doingList = todos.filter((t) => t.status === "doing");
 	const doneList = todos.filter((t) => t.status === "done");
@@ -214,10 +200,6 @@ function render() {
 	doneList.forEach((t) => doneBoard.appendChild(makeTask(t)));
 
 	// count
-	todoBoard.querySelector(".count").textContent = todoList.length;
-	doingBoard.querySelector(".count").textContent = doingList.length;
-	doneBoard.querySelector(".count").textContent = doneList.length;
-	// count 업데이트
 	todoBoard.querySelector(".count").textContent = todoList.length;
 	doingBoard.querySelector(".count").textContent = doingList.length;
 	doneBoard.querySelector(".count").textContent = doneList.length;
@@ -342,17 +324,6 @@ function deleteAllByStatus(status) {
 			`선택하신 ${seletTodo} 의 전체 데이터가 삭제됩니다. \n` +
 				`각 리스트의 우측 X 버튼으로 개별 삭제할 수 있습니다. \n` +
 				`정말 ${seletTodo} 데이터를 삭제 하시겠습니까?`,
-		)
-	) {
-		todos = todos.filter((t) => t.status !== status);
-		saveTodos();
-		render();
-	}
-	if (
-		confirm(
-			"해당 영역 전체 데이터가 삭제됩니다. " +
-				"각 리스트의 우측 X 버튼으로 개별 삭제할 수 있습니다. " +
-				"전체 삭제 하시겠습니까?",
 		)
 	) {
 		todos = todos.filter((t) => t.status !== status);
