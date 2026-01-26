@@ -1,303 +1,305 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- 초기화 -->
-    <link rel="stylesheet" href="./CSS/reset.css" />
-    <!-- 공통설정 -->
-    <link rel="stylesheet" href="./CSS/common.css" />
-    <!-- 테마 -->
-    <link rel="stylesheet" href="./CSS/theme.css" />
-    <!-- 인사말 -->
-    <link rel="stylesheet" href="./CSS/greeting.css" />
-    <!-- 통계 대시보드 -->
-    <link rel="stylesheet" href="./CSS/dashBoard.css" />
-    <!-- 명언/다짐 -->
-    <link rel="stylesheet" href="./CSS/motivation.css" />
-    <!-- 검색/필터 -->
-    <link rel="stylesheet" href="./CSS/filter.css" />
-    <!-- 칸반보드 -->
-    <link rel="stylesheet" href="./CSS/board.css" />
-    <!-- 새할일 모달 -->
-    <link rel="stylesheet" href="./CSS/modal.css" />
-    <!-- 반응형 (★★ style 맨아래 위치해야함 ★★) -->
-    <link rel="stylesheet" href="./CSS/responsive.css" />
-  </head>
-  <body>
-    <main class="container">
-      <!-- Greeting -->
-      <section class="box header">
-        <div class="greeting">
-          <div class="greeting-title" id="greetingTitle">
-            <span id="greetingMessage">좋은 저녁이에요,</span>
-            <span class="nickname-wrap">
-              <strong id="nicknameText" class="nickname-text" tabindex="0"
-                >Task Overflow</strong
-              >
-              <span class="nickname-suffix">님</span>
-              <span class="nickname-icon" aria-hidden="true">✨</span>
-            </span>
-          </div>
-          <div class="greeting-sub" id="todayDate"></div>
-        </div>
-        <button type="button" class="togg-icon-btn" id="themeToggleBtn">
-          🌙
-        </button>
-      </section>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<!-- 초기화 -->
+		<link rel="stylesheet" href="./CSS/reset.css" />
+		<!-- 공통설정 -->
+		<link rel="stylesheet" href="./CSS/common.css" />
+		<!-- 테마 -->
+		<link rel="stylesheet" href="./CSS/theme.css" />
+		<!-- 인사말 -->
+		<link rel="stylesheet" href="./CSS/greeting.css" />
+		<!-- 통계 대시보드 -->
+		<link rel="stylesheet" href="./CSS/dashBoard.css" />
+		<!-- 명언/다짐 -->
+		<link rel="stylesheet" href="./CSS/motivation.css" />
+		<!-- 검색/필터 -->
+		<link rel="stylesheet" href="./CSS/filter.css" />
+		<!-- 칸반보드 -->
+		<link rel="stylesheet" href="./CSS/board.css" />
+		<!-- 새할일 모달 -->
+		<link rel="stylesheet" href="./CSS/modal.css" />
+		<!-- 반응형 (★★ style 맨아래 위치해야함 ★★) -->
+		<link rel="stylesheet" href="./CSS/responsive.css" />
+	</head>
+	<body>
+		<main class="container">
+			<!-- Greeting -->
+			<section class="box header">
+				<div class="greeting">
+					<div class="greeting-title" id="greetingTitle">
+						<span id="greetingMessage">좋은 저녁이에요,</span>
+						<span class="nickname-wrap">
+							<strong id="nicknameText" class="nickname-text" tabindex="0"
+								>Task Overflow</strong
+							>
+							<span class="nickname-suffix">님</span>
+							<span class="nickname-icon" aria-hidden="true">✨</span>
+						</span>
+					</div>
+					<div class="greeting-sub" id="todayDate"></div>
+				</div>
+				<button type="button" class="togg-icon-btn" id="themeToggleBtn">
+					🌙
+				</button>
+			</section>
 
-      <!-- 대시 보드 -->
-      <section class="summary">
-        <div class="stat">
-          <div class="stat-line"></div>
-          <div class="stat-label">Total Tasks</div>
-          <div class="stat-value totalCount">0</div>
-        </div>
-        <div class="stat">
-          <div class="stat-line todoline"></div>
-          <div class="stat-label">To Do</div>
-          <div class="stat-value todoCount">0</div>
-        </div>
-        <div class="stat">
-          <div class="stat-line progressline"></div>
-          <div class="stat-label">In Progress</div>
-          <div class="stat-value progressCount">0</div>
-        </div>
-        <div class="stat bot-left">
-          <div class="stat-line doneline"></div>
-          <div class="stat-label">Done</div>
-          <div class="stat-value doneCount">0</div>
-        </div>
-        <div class="stat bot-right">
-          <div class="stat-line achievementline"></div>
-          <div class="stat-label">Achievement</div>
-          <div class="stat-value achCount">-</div>
-        </div>
-      </section>
+			<!-- 대시 보드 -->
+			<section class="summary">
+				<div class="stat">
+					<div class="stat-line"></div>
+					<div class="stat-label">Total Tasks</div>
+					<div class="stat-value totalCount">0</div>
+				</div>
+				<div class="stat">
+					<div class="stat-line todoline"></div>
+					<div class="stat-label">To Do</div>
+					<div class="stat-value todoCount">0</div>
+				</div>
+				<div class="stat">
+					<div class="stat-line progressline"></div>
+					<div class="stat-label">In Progress</div>
+					<div class="stat-value progressCount">0</div>
+				</div>
+				<div class="stat bot-left">
+					<div class="stat-line doneline"></div>
+					<div class="stat-label">Done</div>
+					<div class="stat-value doneCount">0</div>
+				</div>
+				<div class="stat bot-right">
+					<div class="stat-line achievementline"></div>
+					<div class="stat-label">Achievement</div>
+					<div class="stat-value achCount">-</div>
+				</div>
+			</section>
 
-      <!-- Motivation  -->
-      <section class="box progressCard" aria-label="진행 체크">
-        <div class="progressHeader">
-          <div class="progressTitle">
-            <span class="progressEmoji" aria-hidden="true">🧸</span>
-            오늘도 한 걸음
-          </div>
-        </div>
+			<!-- Motivation  -->
+			<section class="box progressCard" aria-label="진행 체크">
+				<div class="progressHeader">
+					<div class="progressTitle">
+						<span class="progressEmoji" aria-hidden="true">🧸</span>
+						오늘도 한 걸음
+					</div>
+				</div>
 
-        <!-- 오늘의 다짐 -->
-        <div class="myLineBox" aria-label="나의 한 줄">
-          <input
-            id="myLineInput"
-            class="myLineInput"
-            placeholder="오늘의 다짐 한 줄 (예: 10분만 해도 승리)"
-            aria-label="나의 한 줄 입력"
-          />
+				<!-- 오늘의 다짐 -->
+				<div class="myLineBox" aria-label="나의 한 줄">
+					<input
+						id="myLineInput"
+						class="myLineInput"
+						placeholder="오늘의 다짐 한 줄 (예: 10분만 해도 승리)"
+						aria-label="나의 한 줄 입력"
+					/>
 
-          <div class="myLineActions">
-            <span
-              class="myLineStatus"
-              id="myLineStatus"
-              aria-live="polite"
-            ></span>
-            <button
-              type="button"
-              class="pill-btn pill-btn-primary"
-              id="myLineSaveBtn"
-            >
-              저장
-            </button>
-            <button type="button" class="pill-btn" id="myLineClearBtn">
-              삭제
-            </button>
-          </div>
-        </div>
+					<div class="myLineActions">
+						<span
+							class="myLineStatus"
+							id="myLineStatus"
+							aria-live="polite"
+						></span>
+						<button
+							type="button"
+							class="pill-btn pill-btn-primary"
+							id="myLineSaveBtn"
+						>
+							저장
+						</button>
+						<button type="button" class="pill-btn" id="myLineClearBtn">
+							삭제
+						</button>
+					</div>
+				</div>
 
-        <!-- 오늘의 명언 -->
-        <div class="quoteLine" aria-label="오늘의 명언">
-          <span class="quoteLineText" id="quoteText">
-            “내일 지구가 멸망하더라도 나는 오늘 사과나무 한 그루를 심겠다.”
-          </span>
-          <span class="quoteLineMeta" id="quoteMeta">- 스피노자</span>
-        </div>
+				<!-- 오늘의 명언 -->
+				<div class="quoteLine" aria-label="오늘의 명언">
+					<span class="quoteLineText" id="quoteText">
+						“내일 지구가 멸망하더라도 나는 오늘 사과나무 한 그루를 심겠다.”
+					</span>
+					<span class="quoteLineMeta" id="quoteMeta">- 스피노자</span>
+				</div>
 
-        <!-- 진행률 게이지 -->
-        <div class="progressRow" aria-label="진행률 막대">
-          <div
-            class="progressBar"
-            role="progressbar"
-            aria-valuemin="0"
-            aria-valuemax="100"
-            aria-valuenow="0"
-          >
-            <div class="progressFill" id="progressFill"></div>
-            <div class="progressChar" id="progressChar" aria-hidden="true">
-              🐰
-            </div>
-          </div>
-          <div class="progressPct" id="progressPct">0%</div>
-        </div>
-      </section>
+				<!-- 진행률 게이지 -->
+				<div class="progressRow" aria-label="진행률 막대">
+					<div
+						class="progressBar"
+						role="progressbar"
+						aria-valuemin="0"
+						aria-valuemax="100"
+						aria-valuenow="0"
+					>
+						<div class="progressFill" id="progressFill"></div>
+						<div class="progressChar" id="progressChar" aria-hidden="true">
+							🐰
+						</div>
+					</div>
+					<div class="progressPct" id="progressPct">0%</div>
+				</div>
+			</section>
 
-      <!-- 할 일 검색 필터 정렬 -->
-      <section class="box sorting">
-        <div class="search-wrap">
-          <input
-            class="sort search"
-            type="text"
-            placeholder="할 일 검색 . . ."
-          />
-        </div>
-        <select class="sort select-filter">
-          <option value="total">전체: 기간</option>
-          <option value="today">오늘</option>
-          <option value="7day">7일</option>
-        </select>
-        <select class="sort priority-filter">
-          <option value="priority">전체 우선순위</option>
-          <option value="height">높음</option>
-          <option value="middle">보통</option>
-          <option value="low">낮음</option>
-        </select>
-        <select class="sort title-sort">
-          <option value="up-sort">정렬: 제목 오름차순</option>
-          <option value="down-sort">정렬: 제목내림차순</option>
-        </select>
-        <button type="button" class="sort add-btn" id="openModalBtn">
-          + 새 할 일
-        </button>
-      </section>
+			<!-- 할 일 검색 필터 정렬 -->
+			<section class="box sorting">
+				<div class="search-wrap">
+					<input
+						class="sort search"
+						type="text"
+						placeholder="할 일 검색 . . ."
+					/>
+				</div>
+				<select class="sort select-filter">
+					<option value="total">전체: 기간</option>
+					<option value="today">오늘</option>
+					<option value="7day">7일</option>
+				</select>
+				<select class="sort priority-filter">
+					<option value="priority">전체 우선순위</option>
+					<option value="height">높음</option>
+					<option value="middle">보통</option>
+					<option value="low">낮음</option>
+				</select>
+				<select class="sort title-sort">
+					<option value="up-sort">정렬: 제목 오름차순</option>
+					<option value="down-sort">정렬: 제목내림차순</option>
+				</select>
+				<button type="button" class="sort add-btn" id="openModalBtn">
+					+ 새 할 일
+				</button>
+			</section>
 
-      <!-- 모달창 -->
-      <!-- 기본 숨김 처리 -->
-      <div class="modal-wrap">
-        <section class="modal">
-          <header class="modal-header">
-            <h2 class="modal-title" id="modalTitle">To-do</h2>
-            <button class="modal-close" id="closeModal" type="button">×</button>
-          </header>
+			<!-- 모달창 -->
+			<!-- 기본 숨김 처리 -->
+			<div class="modal-wrap">
+				<section class="modal">
+					<header class="modal-header">
+						<h2 class="modal-title" id="modalTitle">To-do</h2>
+						<button class="modal-close" id="closeModal" type="button">×</button>
+					</header>
 
-          <form class="modal-body" id="todoForm">
-            <div class="modal-form">
-              <label class="label" for="title"
-                >제목 <span class="req">*</span></label
-              >
-              <input
-                class="input"
-                id="title"
-                name="title"
-                type="text"
-                placeholder="제목을 입력하세요"
-                required
-              />
-            </div>
+					<form class="modal-body" id="todoForm">
+						<div class="modal-form">
+							<label class="label" for="title"
+								>제목 <span class="req">*</span></label
+							>
+							<input
+								class="input"
+								id="title"
+								name="title"
+								type="text"
+								placeholder="제목을 입력하세요"
+								required
+							/>
+						</div>
 
-            <div class="modal-form">
-              <label class="label" for="content">내용</label>
-              <textarea
-                class="textarea"
-                id="content"
-                name="content"
-                rows="4"
-                placeholder="상세 내용을 입력하세요..."
-              ></textarea>
-            </div>
+						<div class="modal-form">
+							<label class="label" for="content">내용</label>
+							<textarea
+								class="textarea"
+								id="content"
+								name="content"
+								rows="4"
+								placeholder="상세 내용을 입력하세요..."
+							></textarea>
+						</div>
 
-            <div class="modal-status">
-              <div class="modal-form">
-                <p class="label">우선순위</p>
-                <div class="prioritys">
-                  <input
-                    class="priority-radio"
-                    type="radio"
-                    name="priority"
-                    id="high"
-                    value="높음"
-                  />
-                  <label class="priority" for="high">높음</label>
+						<div class="modal-status">
+							<div class="modal-form">
+								<p class="label">우선순위</p>
+								<div class="prioritys">
+									<input
+										class="priority-radio"
+										type="radio"
+										name="priority"
+										id="high"
+										value="높음"
+									/>
+									<label class="priority" for="high">높음</label>
 
-                  <input
-                    class="priority-radio"
-                    type="radio"
-                    name="priority"
-                    id="mid"
-                    value="중간"
-                    checked
-                  />
-                  <label class="priority" for="mid">중간</label>
+									<input
+										class="priority-radio"
+										type="radio"
+										name="priority"
+										id="mid"
+										value="중간"
+										checked
+									/>
+									<label class="priority" for="mid">중간</label>
 
-                  <input
-                    class="priority-radio"
-                    type="radio"
-                    name="priority"
-                    id="low"
-                    value="낮음"
-                  />
-                  <label class="priority" for="low">낮음</label>
-                </div>
-              </div>
+									<input
+										class="priority-radio"
+										type="radio"
+										name="priority"
+										id="low"
+										value="낮음"
+									/>
+									<label class="priority" for="low">낮음</label>
+								</div>
+							</div>
 
-              <div class="modal-form">
-                <label class="label" for="status">상태</label>
-                <select class="select" id="status" name="status">
-                  <option value="todo" selected>할일</option>
-                  <option value="doing">진행중</option>
-                  <option value="done">완료</option>
-                </select>
-              </div>
-            </div>
+							<div class="modal-form">
+								<label class="label" for="status">상태</label>
+								<select class="select" id="status" name="status">
+									<option value="todo" selected>할일</option>
+									<option value="doing">진행중</option>
+									<option value="done">완료</option>
+								</select>
+							</div>
+						</div>
 
-            <footer class="modal-footer">
-              <button class="btn-text" id="cancelBtn" type="button">
-                취소
-              </button>
-              <button class="btn-primary" type="submit">저장하기</button>
-            </footer>
-          </form>
-        </section>
-      </div>
-      <div class="all-reset" id="allReset">전체 데이터 초기화</div>
-      <!-- 칸반 보드 -->
-      <div class="board-wrap">
-        <section class="board">
-          <!-- 할일 -->
-          <article class="box todo-card">
-            <header class="card-head">
-              <div class="card-title">
-                <span>할일</span>
-                <span class="count">1</span>
-              </div>
-              <button class="del-all" type="button">전체 삭제</button>
-            </header>
-            <div class=""></div>
-          </article>
+						<footer class="modal-footer">
+							<button class="btn-text" id="cancelBtn" type="button">
+								취소
+							</button>
+							<button class="btn-primary" type="submit">저장하기</button>
+						</footer>
+					</form>
+				</section>
+			</div>
+			<div class="all-reset">
+				<button class="btn-all-reset" id="allReset">전체 데이터 초기화</button>
+			</div>
+			<!-- 칸반 보드 -->
+			<div class="board-wrap">
+				<section class="board">
+					<!-- 할일 -->
+					<article class="box todo-card">
+						<header class="card-head">
+							<div class="card-title">
+								<span>할일</span>
+								<span class="count">1</span>
+							</div>
+							<button class="del-all" type="button">전체 삭제</button>
+						</header>
+						<div class=""></div>
+					</article>
 
-          <!-- 진행 중 -->
-          <article class="box progress-card">
-            <header class="card-head">
-              <div class="card-title">
-                <span>진행중</span>
-                <span class="count">0</span>
-              </div>
-              <button class="del-all" type="button">전체 삭제</button>
-            </header>
-            <div class=""></div>
-          </article>
+					<!-- 진행 중 -->
+					<article class="box progress-card">
+						<header class="card-head">
+							<div class="card-title">
+								<span>진행중</span>
+								<span class="count">0</span>
+							</div>
+							<button class="del-all" type="button">전체 삭제</button>
+						</header>
+						<div class=""></div>
+					</article>
 
-          <!-- 완료 -->
-          <article class="box done-card">
-            <header class="card-head">
-              <div class="card-title">
-                <span>완료</span>
-                <span class="count">0</span>
-              </div>
-              <button class="del-all" type="button">전체 삭제</button>
-            </header>
-          </article>
-        </section>
-      </div>
-    </main>
-    <script type="module" src="./JS/todos.js" defer></script>
-    <script type="module" src="./JS/main.js"></script>
-  </body>
+					<!-- 완료 -->
+					<article class="box done-card">
+						<header class="card-head">
+							<div class="card-title">
+								<span>완료</span>
+								<span class="count">0</span>
+							</div>
+							<button class="del-all" type="button">전체 삭제</button>
+						</header>
+					</article>
+				</section>
+			</div>
+		</main>
+		<script type="module" src="./JS/todos.js" defer></script>
+		<script type="module" src="./JS/main.js"></script>
+	</body>
 </html>
