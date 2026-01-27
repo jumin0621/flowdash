@@ -1,4 +1,4 @@
-import { getItem, setItem, LS_KEYS } from "./store_temp.js.js";
+import { getItem, setItem, LS_KEYS } from "./store.js";
 import { cleanNickname, showNickname } from "./render.js";
 
 export function bindNicknameEdit() {
