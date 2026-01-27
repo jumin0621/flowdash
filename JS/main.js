@@ -1,5 +1,5 @@
 // 다른 js 파일에서 불러오기
-import { LS_KEYS, getItem, setItem, removeItem, todayKey } from "./store_temp.js.js";
+import { LS_KEYS, getItem, setItem, removeItem, todayKey } from "./store.js";
 
 import {
     showGreeting,
