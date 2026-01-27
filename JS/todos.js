@@ -334,8 +334,8 @@ function updateTodo(id, title, content, status, priority) {
 function deleteTodo(id) {
 	if (
 		confirm(
-			`이 할일을 정말로 삭제하시겠습니까? \n` +
-				`삭제된 할 일은 복구할 수 없습니다.`,
+			`이 일정을 삭제하시겠습니까? \n` +
+				`삭제된 일정은 복구할 수 없습니다.`,
 		)
 	) {
 		todos = todos.filter((t) => t.id !== id);
@@ -384,8 +384,7 @@ function resetFilter() {
 function resetAll() {
 	if (
 		confirm(
-			`정말로 모든 할 일 데이터를 삭제하시겠습니까? \n` +
-				`이 작업은 되돌릴 수 없습니다.`,
+			`정말 삭제하시겠습니까?\n초기화 후엔 되돌릴 수 없습니다.`,
 		)
 	) {
 		resetFilter(); // 필터걸린거 초기화
