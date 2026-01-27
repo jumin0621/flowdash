@@ -1,3 +1,6 @@
+/* ==========================
+	전체 데이터 초기화
+========================== */
 .all-reset {
 	padding-right: 20px;
 	display: flex;
@@ -19,6 +22,13 @@
 	background: rgba(228, 87, 116, 0.3);
 }
 
+.add-btn {
+	cursor: pointer;
+}
+
+/* ==========================
+	칸반보드
+========================== */
 .board {
 	width: 100%;
 	display: grid;
@@ -32,6 +42,13 @@
 	height: 440px;
 	overflow: auto;
 	scrollbar-width: none;
+}
+
+.todo-card:hover,
+.progress-card:hover,
+.done-card:hover {
+	transform: none;
+	box-shadow: none;
 }
 
 .card-head {
@@ -82,9 +99,14 @@
 	opacity: 0.3;
 }
 
-/* ============== 
-		카드안쪽
-============== */
+/* 카드안쪽 */
+/* JS에서 태그 생성 */
+.empty-msg {
+	padding-top: 30px;
+	opacity: 0.6;
+	text-align: center;
+}
+
 .task {
 	margin-bottom: 10px;
 	cursor: pointer;
@@ -108,14 +130,13 @@
 	overflow: hidden;
 }
 
-/* 할일 높음 */
+/* 할일 테두리 (높음) */
 .task-high {
 	position: relative;
 	border: 1px solid #4b2cff;
 	border-radius: 10px;
 	padding: 12px 12px 10px;
 	overflow: hidden;
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
 }
 
 .task-high::before {
@@ -128,14 +149,13 @@
 	background: #4b2cff;
 }
 
-/* 할일 중간 */
+/* 할일 테두리 (중간) */
 .task-mid {
 	position: relative;
 	border: 1px solid #8b7dff;
 	border-radius: 10px;
 	padding: 12px 12px 10px;
 	overflow: hidden;
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
 }
 
 .task-mid::before {
@@ -148,14 +168,13 @@
 	background: #8b7dff;
 }
 
-/* 할일 낮음 */
+/* 할일 테두리 (낮음) */
 .task-low {
 	position: relative;
 	border: 1px solid #d7d0ff;
 	border-radius: 10px;
 	padding: 12px 12px 10px;
 	overflow: hidden;
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
 }
 
 .task-low::before {
@@ -168,6 +187,97 @@
 	background: #d7d0ff;
 }
 
+/* 진행중 테두리 (높음) */
+.high-color {
+	border: 1px solid #178a52;
+}
+
+.high-color::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 5px;
+	height: 100%;
+	background: #178a52;
+}
+
+/* 진행중 테두리 (중간) */
+.mid-color {
+	border: 1px solid #2bb673;
+}
+
+.mid-color::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 5px;
+	height: 100%;
+	background: #2bb673;
+}
+
+/* 진행중 테두리 (낮음) */
+.low-color {
+	border: 1px solid #bff2da;
+}
+
+.low-color::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 5px;
+	height: 100%;
+	background: #bff2da;
+}
+
+/* 완료 테두리 (높음) */
+.done-high-color {
+	border: 1px solid #d84a78;
+}
+
+.done-high-color::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 5px;
+	height: 100%;
+	background: #d84a78;
+}
+
+/* 완료 테두리 (중간) */
+.done-mid-color {
+	border: 1px solid #ff6aa2;
+}
+
+.done-mid-color::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 5px;
+	height: 100%;
+	background: #ff6aa2;
+}
+
+/* 완료 테두리 (낮음) */
+.done-low-color {
+	border: 1px solid #ffd0e1;
+}
+
+.done-low-color::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 5px;
+	height: 100%;
+	background: #ffd0e1;
+}
+
+/* 보드 안쪽 할일 영역 */
 .task-top {
 	padding-left: 10px;
 	padding-bottom: 10px;
@@ -199,11 +309,13 @@
 	font-weight: 800;
 	color: #666;
 }
+
 .task-title {
 	font-weight: 500;
 	font-size: 16px;
 	margin: 0 0 6px;
 }
+
 .task-desc {
 	margin: 0 0 8px;
 	font-size: 14px;
@@ -211,42 +323,10 @@
 	color: #666;
 	line-height: 1.35;
 }
+
 .task-date {
 	padding: 0 0 10px 10px;
 	font-size: 12px;
 	line-height: 1.2;
 	color: #888;
-}
-
-/* 새할일 */
-.toolbar {
-	display: flex;
-}
-
-.add {
-	align-items: center;
-	padding: 10px 16px;
-	border: 0;
-	border-radius: 50px;
-	background: #6cb6ff;
-	color: #fff;
-	font-weight: 700;
-	font-size: 14px;
-	cursor: pointer;
-	box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
-	transition:
-		transform 0.2s ease,
-		box-shadow 0.2s ease,
-		background 0.2s ease;
-}
-
-.add:hover {
-	background: #4d9cf7;
-	box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
-	transform: translateY(-1px);
-}
-
-.add:active {
-	transform: translateY(0);
-	box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
 }

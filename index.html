@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>동기부여! To-do List</title>
 		<!-- 초기화 -->
 		<link rel="stylesheet" href="./CSS/reset.css" />
 		<!-- 공통설정 -->
@@ -132,7 +132,7 @@
 					>
 						<div class="progressFill" id="progressFill"></div>
 						<div class="progressChar" id="progressChar" aria-hidden="true">
-						    <img src="./img/rabbit.png" alt="" class="progressCharImg" />
+							<img src="./img/rabbit.png" alt="" class="progressCharImg" />
 						</div>
 					</div>
 					<div class="progressPct" id="progressPct">0%</div>
@@ -173,7 +173,7 @@
 			<div class="modal-wrap">
 				<section class="modal">
 					<header class="modal-header">
-						<h2 class="modal-title" id="modalTitle">To-do</h2>
+						<h2 class="modal-title" id="modalTitle">새 할일</h2>
 						<button class="modal-close" id="closeModal" type="button">×</button>
 					</header>
 
@@ -271,7 +271,7 @@
 							</div>
 							<button class="del-all" type="button">전체 삭제</button>
 						</header>
-						<div class=""></div>
+						<div class="empty-msg">할 일 목록이 비어있습니다.</div>
 					</article>
 
 					<!-- 진행 중 -->
@@ -283,7 +283,7 @@
 							</div>
 							<button class="del-all" type="button">전체 삭제</button>
 						</header>
-						<div class=""></div>
+						<div class="empty-msg">진행중인 일정이 없습니다.</div>
 					</article>
 
 					<!-- 완료 -->
@@ -295,10 +295,16 @@
 							</div>
 							<button class="del-all" type="button">전체 삭제</button>
 						</header>
+						<div class="empty-msg">완료된 일정이 없습니다.</div>
 					</article>
 				</section>
 			</div>
 		</main>
+		<footer class="copyright-footer">
+			<small class="copyright"
+				>&copy;2026 Task Overflow. All rights reserved.</small
+			>
+		</footer>
 		<script type="module" src="./JS/todos.js" defer></script>
 		<script type="module" src="./JS/main.js"></script>
 	</body>

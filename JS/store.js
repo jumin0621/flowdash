@@ -1,8 +1,8 @@
 export const LS_KEYS = {
-    NICKNAME: "flowdash-nickname",
-    THEME: "flowdash-theme",
-    MYLINE: "flowdash-myline",
-    DAILY_QUOTE: "flowdash-daily-quote",
+	NICKNAME: "flowdash-nickname",
+	THEME: "flowdash-theme",
+	MYLINE: "flowdash-myline",
+	DAILY_QUOTE: "flowdash-daily-quote",
 	TODO: "flowdash-todos",
 };
 
