@@ -131,9 +131,18 @@
 }
 
 .priority-radio:checked + .priority {
-	background: rgba(255, 159, 60, 0.18);
-	border-color: none;
-	color: #ff7a00;
+	color: #fff;
+	border-color: transparent;
+}
+
+#high:checked + .priority-high {
+	background: #e45774;
+}
+#mid:checked + .priority-mid {
+	background: #5c4bff;
+}
+#low:checked + .priority-low {
+	background: #2fbf71;
 }
 
 /* 하단 버튼 */
