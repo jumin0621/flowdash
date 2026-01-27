@@ -1,6 +1,7 @@
 import { updateDashCount } from "./dashboard.js";
 import { currentPeriod, filterPeriod } from "./filter.js";
 import { LS_KEYS } from "./store.js";
+import { updateProgress } from "./progress.js";
 
 // =========================
 // 화면 값 받아와서 셋팅하기
@@ -238,6 +239,8 @@ export function render() {
 	todoBoard.querySelector(".count").textContent = todoList.length;
 	doingBoard.querySelector(".count").textContent = doingList.length;
 	doneBoard.querySelector(".count").textContent = doneList.length;
+
+  updateProgress(todoList.length, doingList.length, doneList.length);
 
 	// =======달성률===========
 	const achievement =

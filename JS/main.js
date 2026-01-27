@@ -8,6 +8,7 @@ import {
   showTodayDate,
   cleanNickname,
   applyTheme,
+  showMyLine,
 } from "./render.js";
 
 import { pickRandom, greetingList, nickIconList } from "./api.js";
@@ -81,6 +82,18 @@ function initNickname() {
   showNickname(initial);
 }
 
+// 다짐 박스 
+function initMyLine() {
+    const myLineInput = document.querySelector("#myLineInput");
+    const myLineSaveBtn = document.querySelector("#myLineSaveBtn");
+    const myLineClearBtn = document.querySelector("#myLineClearBtn");
+    const myLineStatus = document.querySelector("#myLineStatus");
+
+    if (!myLineInput || !myLineSaveBtn || !myLineClearBtn) return;
+
+    const SAVED_COLOR = "#8b7dff";
+}
+
 // [실행부] 앱 시작 시 동작
 
 initTheme(); // 테마 먼저
@@ -92,3 +105,4 @@ initNickname(); // 닉네임
 
 showTodayDate(); // 날짜 표시
 bindNicknameEdit(); // 닉네임 수정 기능
+initMyLine();

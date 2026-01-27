@@ -122,10 +122,15 @@ body.dark .sorting input::placeholder {
     color: var(--placeholder);
 }
 
-body.dark select,
-body.dark option {
-    background: var(--field);
-    color: var(--text);
+body.dark select {
+    background: #ffffff;
+    color: #111111;
+    border: 1px solid #e6e8ef;
+}
+
+body.dark select option {
+    background: #ffffff;
+    color: #111111;
 }
 
 /* 구분선/추가줄 */
@@ -151,13 +156,20 @@ body.dark .btn {
     color: var(--text);
 }
 
+body.dark .modal .pill-btn,
+body.dark .modal .del-all,
+body.dark .modal .btn {
+    background: #ffffff;
+    border: 1px solid #e6e8ef;
+    color: #111111;
+}
+
 /* 다크모드 토글 버튼 */
 body.dark .togg-icon-btn {
     background: var(--task);              
     border: 1px solid var(--task-border);
     color: var(--text);                   
 }
-
 
 /* 강조 버튼 */
 body.dark .pill-btn-primary,
@@ -171,8 +183,13 @@ body.dark .progressBar {
     background: var(--field);
 }
 
-/* 팝업 창 */
-body.dark .modal-wrap {
+/* 모달 박스(팝업 창) - 라이트처럼 유지 */
+body.dark .modal {
     background: #ffffff;
     color: #111111;
+}
+
+/* 다크 모드 */
+body.dark .modal-wrap {
+    background: rgba(0, 0, 0, 0.3);
 }
