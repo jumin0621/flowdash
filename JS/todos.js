@@ -205,6 +205,20 @@ function render() {
 	todoBoard.querySelector(".count").textContent = todoList.length;
 	doingBoard.querySelector(".count").textContent = doingList.length;
 	doneBoard.querySelector(".count").textContent = doneList.length;
+
+	// =======달성률===========
+	const achievement =
+		todos.length === 0 || doneList.length === 0
+			? "-"
+			: Math.round((doneList.length / todos.length) * 100);
+	// dashboard 카운트 업데이트
+	updateDashCount({
+		total: todos.length,
+		todo: todoList.length,
+		doing: doingList.length,
+		done: doneList.length,
+		achievement,
+	});
 }
 
 // =========================
