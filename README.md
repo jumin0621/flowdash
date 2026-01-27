@@ -199,8 +199,7 @@ https://jumin0621.github.io/flowdash/
 ```taskOverflow
 flowdash/
 ├── index.html/              # HTML 템플릿 파일
-│             
-│            
+│                       
 ├── CSS/
 │   ├── board.css            # 칸반보드 스타일
 │   ├── common.css           # 공통 스타일 정의
@@ -211,19 +210,23 @@ flowdash/
 │   ├── motivation.css       # 명언 스타일
 │   ├── reset.css            # CSS 초기화
 │   ├── responsive.css       # 반응형 UI
-│   ├── theme.css            # 다크/라이트 테마 스타일
+│   └── theme.css            # 다크/라이트 테마 스타일
+│  
 ├── JS/
 │   ├── api.js               # 인사말
 │   ├── dashboard.js         # 통계 대시보드
+│   ├── filter.js            # 검색/정렬
 │   ├── main.js              # 엔트리 
 │   ├── modal.js             # 닉네임
-│   ├── render.js            # 닉네임
+│   ├── render.js            # 명언
 │   ├── store.js             # 스토리지키
 │   ├── todos.js             # 투두리스트(칸반보드)
+│   └── progress.js          # 달성률게이지
+│  
 ├── img/
-│   ├── dark.png             # 다크모드 배경
-│   ├── light.png            # 라이트모드 배경
-├── .gitignore               # Git 무시 파일 목록
+│   ├── dark.png             
+│   ├── light.png
+│   └── rabbit.png            
 └── README.md                # 프로젝트 설명
 ```
 
