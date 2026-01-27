@@ -64,6 +64,26 @@ export function applyTheme(theme) {
 
     const toggleBtn = document.querySelector("#themeToggleBtn");
     if(toggleBtn) {
-        toggleBtn.textContent = isDark ? "🌙" : "☀️"; 
+        toggleBtn.textContent = isDark ? "☀️" : "🌙"; 
     }
+}
+
+// HTML에서 id="myLineInput" 요소 찾기
+export function showMyLine(text) {
+    const myLineInput = document.querySelector("#myLineInput");
+    if (!myLineInput) return;
+
+    myLineInput.value = text;
+}
+
+// HTML에서 id="dailyQuote" 요소 찾기
+// 오늘의 명언 출력
+export function showDailyQuote(quote) {
+    const quoteTextElement = document.querySelector("#quoteText");
+    const quoteMetaElement = document.querySelector("#quoteMeta");
+
+    if (!quoteTextElement || !quoteMetaElement) return;
+
+    quoteTextElement.textContent = quote.text;
+    quoteMetaElement.textContent = quote.meta;
 }

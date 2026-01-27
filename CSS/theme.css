@@ -170,3 +170,9 @@ body.dark .sorting .add-btn {
 body.dark .progressBar {
     background: var(--field);
 }
+
+/* 팝업 창 */
+body.dark .modal-wrap {
+    background: #ffffff;
+    color: #111111;
+}

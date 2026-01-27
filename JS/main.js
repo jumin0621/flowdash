@@ -1,7 +1,5 @@
-console.log("main.js 실행됨");
-
 // 다른 js 파일에서 불러오기
-import { LS_KEYS, getItem, setItem } from "./store.js";
+import { LS_KEYS, getItem, setItem, removeItem, todayKey } from "./store_temp.js.js";
 
 import {
     showGreeting,
@@ -9,13 +7,16 @@ import {
     showNickIcon,
     showTodayDate,
     cleanNickname,
-    applyTheme
+    applyTheme,
+    showMyLine,
+    showDailyQuote
 } from "./render.js";
 
 import {
     pickRandom,
     greetingList,
-    nickIconList
+    nickIconList,
+    fetchQuote
 } from "./api.js";
 
 import { bindNicknameEdit } from "./modal.js";
@@ -90,15 +91,3 @@ function initNickname() {
     setItem(LS_KEYS.NICKNAME, initial);
     showNickname(initial);
 }
-
-// [실행부] 앱 시작 시 동작
-
-initTheme();          // 테마 먼저
-bindThemeToggle();   // 테마 버튼 연결
-
-initGreeting();      // 인사말
-initNickIcon();      // 아이콘
-initNickname();      // 닉네임
-
-showTodayDate();     // 날짜 표시
-bindNicknameEdit(); // 닉네임 수정 기능
