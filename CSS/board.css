@@ -96,7 +96,7 @@
 }
 
 .done-card [class^="task-"] {
-	opacity: 0.3;
+	opacity: 0.6;
 }
 
 /* 카드안쪽 */
