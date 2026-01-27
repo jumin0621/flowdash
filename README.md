@@ -182,22 +182,23 @@ https://jumin0621.github.io/flowdash/
 <br/>
 
 ## 5.2 Tools
-| <img src="https://github.com/user-attachments/assets/fb7aae51-5160-4ebe-bb9a-895132d65be8" width="100"> |
-|:------:|
-| vsCode |
+| <img src="https://github.com/user-attachments/assets/fb7aae51-5160-4ebe-bb9a-895132d65be8" width="100"> | <img src="https://github.com/user-attachments/assets/183c3748-d2d9-418d-94b1-1cdd35992d2a" alt="discord" width="100"> |
+|:------:|:-----:|
+| vsCode | Figma |
 
 <br/>
 
 ## 5.3 Cooperation
-<img src="https://github.com/user-attachments/assets/2a1df8d3-c923-40ac-a514-c5b5decf87f5" alt="gitgub" width="100"> | <img src="https://github.com/user-attachments/assets/996905e5-0252-4729-840c-9babef6d42f4" alt="Notion" width="100"> |
+<img src="https://github.com/user-attachments/assets/2a1df8d3-c923-40ac-a514-c5b5decf87f5" alt="gitgub" width="100"> | <img src="https://github.com/user-attachments/assets/996905e5-0252-4729-840c-9babef6d42f4" alt="gitgub" width="100"> |
 |:------:|:-------:|
-| GitHub | Discord |  
+| GitHub | Discord |
 
 <br/>
 
 # 6. Project Structure (프로젝트 구조)
-```taskOverflow
+```bash
 flowdash/
+├── README.md                # 프로젝트 설명
 ├── index.html/              # HTML 템플릿 파일
 │                       
 ├── CSS/
@@ -223,11 +224,8 @@ flowdash/
 │   ├── todos.js             # 투두리스트(칸반보드)
 │   └── progress.js          # 달성률게이지
 │  
-├── img/
-│   ├── dark.png             
-│   ├── light.png
-│   └── rabbit.png            
-└── README.md                # 프로젝트 설명
+└── img/                     # 이미지
+
 ```
 
 <br/>
