@@ -83,10 +83,8 @@
 		grid-column: 1 / -1;
 		grid-row: auto;
 	}
-}
 
-@media (max-width: 768px) {
-    /* 헤더: 좌(텍스트) 우(토글) */
+	/* 헤더: 좌(텍스트) 우(토글) */
     .header {
         display: flex;
         align-items: center;
@@ -143,10 +141,8 @@
         flex-shrink: 0;
         margin-left: auto;
     }
-}
 
-@media (max-width: 768px) {
-    /* 카드 기준점 확정 */
+	/* 카드 기준점 확정 */
     section.box.progressCard {
         position: relative !important;
         overflow: visible !important;
@@ -189,3 +185,4 @@
         padding-right: 140px !important;
     }
 }
+
