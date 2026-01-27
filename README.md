@@ -199,7 +199,7 @@ https://jumin0621.github.io/flowdash/
 ```bash
 flowdash/
 ├── README.md                # 프로젝트 설명
-├── index.html/              # HTML 템플릿 파일
+├── index.html               # HTML 템플릿 파일
 │                       
 ├── CSS/
 │   ├── board.css            # 칸반보드 스타일
