@@ -1,7 +1,14 @@
 export const LS_KEYS = {
+<<<<<<< HEAD
 	NICKNAME: "flowdash-nickname",
 	THEME: "flowdash-theme",
 	TODO: "flowdash-todos",
+=======
+    NICKNAME: "flowdash-nickname",
+    THEME: "flowdash-theme",
+    MYLINE: "flowdash-myline",
+    DAILY_QUOTE: "flowdash-daily-quote"
+>>>>>>> 81f4dcc (feat: greeting theme & progress rabbit position fix)
 };
 
 export function setItem(key, value) {

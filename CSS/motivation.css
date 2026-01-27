@@ -38,6 +38,7 @@
 
 .myLineActions {
 	display: flex;
+	align-items: center;
 	gap: 10px;
 }
 
@@ -60,7 +61,7 @@
 
 /* 명언 */
 .quoteLine {
-	margin-bottom: 50px;
+	padding-bottom: 70px;
 	display: flex;
 	justify-content: space-between;
 }
@@ -81,7 +82,7 @@
 .progressRow {
 	display: flex;
 	align-items: center;
-	gap: 12px;
+	gap: 20px;
 	margin-top: 14px;
 	padding: 0;
 }
@@ -94,20 +95,45 @@
 	overflow: visible;
 }
 
-/* 채워지는 게이지 바 */
 .progressFill {
-	height: 100%;
-	width: 0%;
-	border-radius: 999px;
-	background: linear-gradient(90deg, #82b6ff 0%, #816bff 100%);
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    height: 100%;
+    width: 0%;
+
+    border-radius: inherit;
+    z-index: 1;
+
+    background: linear-gradient(
+        90deg,
+        #f6c1d1 0%,
+        #f3b3cc 35%,
+        #e8a8d4 70%,
+        #d7a6e8 100%
+    );
+
+    /* 선택: 은은한 발광 */
+    box-shadow: 0 0 12px rgba(232, 168, 212, 0.45);
+
+    transition: width 0.4s ease;
 }
 
-/* 토끼 아이콘 */
+/* 토끼 png */
 .progressChar {
-	position: absolute;
-	top: -31px;
-	transform: translateX(-50%);
-	left: 0%;
-	padding-left: 20px;
-	font-size: 25px;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    transform: translate(-50%, -75%); 
+    z-index: 2;
+    pointer-events: none;
+}
+
+.progressCharImg {
+    width: 100px;      
+    height: 100px;
+    object-fit: contain;
+    display: block;
 }

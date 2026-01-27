@@ -1,9 +1,7 @@
 // 무작위로 값을 뽑게해주는 함수
 export function pickRandom(list) {
     const length = list.length;
-    
     const randomNumber = Math.random() * length;
-
     const index = Math.floor(randomNumber);
 
     return list[index];
@@ -26,4 +24,30 @@ export function greetingList(hour) {
 // 아이콘 목록
 export function nickIconList() {
     return ["✨", "🌟", "💫", "🪄", "🔥", "🍀", "🧸", "🐰"];
+}
+
+// 오늘의 명언 API
+export async function fetchQuote() {
+    try {
+        const res = await fetch("https://korean-advice-open-api.vercel.app/api/advice");
+
+        if (!res.ok) {
+            throw new Error("명언 API 응답 실패");
+        }
+
+        const data = await res.json();
+
+        return {
+            text: `“${data.message}”`,
+            meta: "- 오늘의 명언"
+        };
+    } catch (error) {
+        console.error("명언 불러오기 실패:", error);
+
+        // 실패 시 대체 문구
+        return {
+            text: "“오늘도 충분히 잘하고 있어요.”",
+            meta: "- FlowDash"
+        };
+    }
 }
