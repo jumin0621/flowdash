@@ -205,7 +205,7 @@ flowdash/
 │   ├── board.css            # 칸반보드 스타일
 │   ├── common.css           # 공통 스타일 정의
 │   ├── dashBoard.css        # 통계 대시보드 스타일
-│   ├── filter.css           # 검색/필터 스타일
+│   ├── filter.css           # 검색/필터영역 스타일
 │   ├── greeting.css         # 인사말 스타일
 │   ├── modal.css            # 할일 등록 모달 스타일
 │   ├── motivation.css       # 명언 스타일
@@ -216,7 +216,7 @@ flowdash/
 ├── JS/
 │   ├── api.js               # 인사말
 │   ├── dashboard.js         # 통계 대시보드
-│   ├── filter.js            # 검색/정렬
+│   ├── filter.js            # 검색/정렬/필터
 │   ├── main.js              # 엔트리 
 │   ├── modal.js             # 닉네임
 │   ├── render.js            # 명언
