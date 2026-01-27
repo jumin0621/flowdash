@@ -1,7 +1,5 @@
 import { updateDashCount } from "./dashboard.js";
 import { currentPeriod, filterPeriod } from "./filter.js";
-
-import { updateDashCount } from "./dashboard.js";
 import { LS_KEYS } from "./store.js";
 
 // =========================
