@@ -92,6 +92,122 @@ function initMyLine() {
     if (!myLineInput || !myLineSaveBtn || !myLineClearBtn) return;
 
     const SAVED_COLOR = "#8b7dff";
+
+
+    function getEditColor() {
+        const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+        return isDark ? "#ffffff" : "#111111";
+    }
+
+    function getMyLineKey() {
+    return LS_KEYS.MYLINE;
+    }
+
+    const storageKey = getMyLineKey();
+
+    function applyMyLineStyle(isSaved) {
+        if (isSaved) {
+            myLineInput.style.textAlign = "center";
+            myLineInput.style.color = SAVED_COLOR;
+        } else {
+            myLineInput.style.textAlign = "left";
+            myLineInput.style.color = getEditColor();
+        }
+    }
+
+    let statusTimerId = null;
+
+    function setStatus(message) {
+        if (!myLineStatus) return;
+
+        myLineStatus.textContent = message;
+
+        window.clearTimeout(statusTimerId);
+        statusTimerId = window.setTimeout(() => {
+            myLineStatus.textContent = "";
+        }, 1500);
+    }
+
+    // 처음 로딩 시 저장된 다짐 불러오기
+    const saved = getItem(storageKey) || "";
+    showMyLine(saved);
+    applyMyLineStyle(Boolean(saved.trim()));
+
+    // 다짐 저장 기능
+    function saveMyLine() {
+        const text = myLineInput.value.trim();
+
+        if (!text) {
+            showMyLine("");
+            applyMyLineStyle(false);
+            setStatus("빈 문장은 저장 불가");
+            myLineInput.focus();
+            return;
+        }
+
+        setItem(storageKey, text);
+        setStatus("저장 완료");
+
+        applyMyLineStyle(true);
+        myLineInput.blur();
+    }
+
+    function clearMyLine() {
+        removeItem(storageKey);
+        showMyLine("");
+        setStatus("삭제 완료");
+
+        applyMyLineStyle(false);
+        myLineInput.blur();
+    }
+
+    // 입력창 클릭 시 편집 모드 스타일 적용
+    myLineInput.addEventListener("focus", () => {
+        applyMyLineStyle(false);
+    });
+
+    // 버튼 이벤트 연결
+    myLineSaveBtn.addEventListener("click", saveMyLine);
+    myLineClearBtn.addEventListener("click", clearMyLine);
+
+    // Enter 키로 저장하기
+    myLineInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            saveMyLine();
+        }
+    });
+}
+
+async function initDailyQuote() {
+    const today = todayKey();
+    const storageKey = LS_KEYS.DAILY_QUOTE;
+
+    // 이미 저장된 명언 있는지 확인
+    const savedRaw = getItem(storageKey);
+
+    if (savedRaw) {
+        try {
+            const savedQuote = JSON.parse(savedRaw);
+            showDailyQuote(savedQuote);
+            return;
+        } catch (error) {
+            removeItem(storageKey);
+        }
+    }
+
+    // 새 명언 가져오기
+    try {
+        const quote = await fetchQuote();
+        setItem(storageKey, JSON.stringify(quote));
+        showDailyQuote(quote);
+    } catch (error) {
+        console.error("명언 불러오기 실패:", error);
+        showDailyQuote({
+            text: "“오늘도 충분히 잘하고 있어요.”",
+            meta: "- FlowDash"
+        });
+    }
 }
 
 // [실행부] 앱 시작 시 동작

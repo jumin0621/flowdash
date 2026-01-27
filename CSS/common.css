@@ -54,3 +54,15 @@ body {
 	color: rgba(17, 17, 17, 0.8);
 	letter-spacing: 0.2px;
 }
+
+/* Button Hover (공통) */
+.pill-btn:hover,
+.btn:hover,
+.add-btn:hover,
+.togg-icon-btn:hover,
+.close:hover {
+    transform: translateY(-1px);
+    box-shadow:
+        0 0 0 1px rgba(139, 125, 255, 0.18),
+        0 6px 14px rgba(0, 0, 0, 0.18);
+}

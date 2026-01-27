@@ -60,6 +60,22 @@
 	border-bottom: 2px solid #4b2cff;
 }
 
+/* 할일 */
+.todo-card .card-head {
+    border-bottom-color: #8B7DFF;
+}
+
+/* 진행중 */
+.progress-card .card-head {
+    border-bottom-color: #7FE8CF;
+}
+
+/* 완료 */
+.done-card .card-head {
+    border-bottom-color: #FF9FBE;
+}
+
+
 .card-title {
 	display: flex;
 	align-items: center;
@@ -133,7 +149,7 @@
 /* 할일 테두리 (높음) */
 .task-high {
 	position: relative;
-	border: 1px solid #4b2cff;
+	border: 1px solid #8B7DFF;
 	border-radius: 10px;
 	padding: 12px 12px 10px;
 	overflow: hidden;
@@ -146,13 +162,13 @@
 	left: 0;
 	width: 5px;
 	height: 100%;
-	background: #4b2cff;
+	background: #8b7dff;
 }
 
 /* 할일 테두리 (중간) */
 .task-mid {
 	position: relative;
-	border: 1px solid #8b7dff;
+	border: 1px solid #B7B0FF;
 	border-radius: 10px;
 	padding: 12px 12px 10px;
 	overflow: hidden;
@@ -165,13 +181,13 @@
 	left: 0;
 	width: 5px;
 	height: 100%;
-	background: #8b7dff;
+	background: #B7B0FF;
 }
 
 /* 할일 테두리 (낮음) */
 .task-low {
 	position: relative;
-	border: 1px solid #d7d0ff;
+	border: 1px solid #E6E4FF;
 	border-radius: 10px;
 	padding: 12px 12px 10px;
 	overflow: hidden;
@@ -184,12 +200,12 @@
 	left: 0;
 	width: 5px;
 	height: 100%;
-	background: #d7d0ff;
+	background: #E6E4FF;
 }
 
 /* 진행중 테두리 (높음) */
 .high-color {
-	border: 1px solid #178a52;
+	border: 1px solid #7FE8CF;
 }
 
 .high-color::before {
@@ -199,12 +215,12 @@
 	left: 0;
 	width: 5px;
 	height: 100%;
-	background: #178a52;
+	background: #7FE8CF;
 }
 
 /* 진행중 테두리 (중간) */
 .mid-color {
-	border: 1px solid #2bb673;
+	border: 1px solid #B8F2E4;
 }
 
 .mid-color::before {
@@ -214,12 +230,12 @@
 	left: 0;
 	width: 5px;
 	height: 100%;
-	background: #2bb673;
+	background: #B8F2E4;
 }
 
 /* 진행중 테두리 (낮음) */
 .low-color {
-	border: 1px solid #bff2da;
+	border: 1px solid #cdfbef;
 }
 
 .low-color::before {
@@ -229,12 +245,12 @@
 	left: 0;
 	width: 5px;
 	height: 100%;
-	background: #bff2da;
+	background: #cdfbef;
 }
 
 /* 완료 테두리 (높음) */
 .done-high-color {
-	border: 1px solid #d84a78;
+	border: 1px solid #FF9FBE;
 }
 
 .done-high-color::before {
@@ -244,12 +260,12 @@
 	left: 0;
 	width: 5px;
 	height: 100%;
-	background: #d84a78;
+	background: #FF9FBE;
 }
 
 /* 완료 테두리 (중간) */
 .done-mid-color {
-	border: 1px solid #ff6aa2;
+	border: 1px solid #fdbbd0;
 }
 
 .done-mid-color::before {
@@ -259,12 +275,12 @@
 	left: 0;
 	width: 5px;
 	height: 100%;
-	background: #ff6aa2;
+	background: #fdbbd0;
 }
 
 /* 완료 테두리 (낮음) */
 .done-low-color {
-	border: 1px solid #ffd0e1;
+	border: 1px solid #fbd5e1;
 }
 
 .done-low-color::before {
@@ -274,7 +290,7 @@
 	left: 0;
 	width: 5px;
 	height: 100%;
-	background: #ffd0e1;
+	background: #fbd5e1;
 }
 
 /* 보드 안쪽 할일 영역 */
