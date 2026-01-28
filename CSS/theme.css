@@ -112,7 +112,7 @@ body.dark .myLineStatus {
 /* 검색/필터/정렬 */
 body.dark .sorting input,
 body.dark .sorting select {
-	background: var(--field);
+	background-color: var(--field);
 	border: 1px solid var(--card-border);
 	color: var(--text);
 }
