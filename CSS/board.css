@@ -1,13 +1,32 @@
 /* ==========================
-	전체 데이터 초기화
+	필터뱃지 / 전체 데이터 초기화
 ========================== */
-.all-reset {
+.all-filter {
 	padding-right: 20px;
 	display: flex;
-	justify-content: flex-end;
+	align-items: center;
+}
+
+.filter-badges {
+	display: inline-flex;
+	align-items: center;
+	margin: 0 5px;
+	padding: 10px 16px;
+	border-radius: 20px;
+	background: #ffffffb3;
+	font-size: 13px;
+}
+
+.filter-badge button {
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+	font-size: 14px;
+	line-height: 1;
 }
 
 .btn-all-reset {
+	margin-left: auto;
 	padding: 10px 14px;
 	border-radius: 10px;
 	border: none;
@@ -62,19 +81,18 @@
 
 /* 할일 */
 .todo-card .card-head {
-    border-bottom-color: #8B7DFF;
+	border-bottom-color: #8b7dff;
 }
 
 /* 진행중 */
 .progress-card .card-head {
-    border-bottom-color: #7FE8CF;
+	border-bottom-color: #7fe8cf;
 }
 
 /* 완료 */
 .done-card .card-head {
-    border-bottom-color: #FF9FBE;
+	border-bottom-color: #ff9fbe;
 }
-
 
 .card-title {
 	display: flex;
@@ -149,7 +167,7 @@
 /* 할일 테두리 (높음) */
 .task-high {
 	position: relative;
-	border: 1px solid #8B7DFF;
+	border: 1px solid #8b7dff;
 	border-radius: 10px;
 	padding: 12px 12px 10px;
 	overflow: hidden;
@@ -168,7 +186,7 @@
 /* 할일 테두리 (중간) */
 .task-mid {
 	position: relative;
-	border: 1px solid #B7B0FF;
+	border: 1px solid #b7b0ff;
 	border-radius: 10px;
 	padding: 12px 12px 10px;
 	overflow: hidden;
@@ -181,13 +199,13 @@
 	left: 0;
 	width: 5px;
 	height: 100%;
-	background: #B7B0FF;
+	background: #b7b0ff;
 }
 
 /* 할일 테두리 (낮음) */
 .task-low {
 	position: relative;
-	border: 1px solid #E6E4FF;
+	border: 1px solid #e6e4ff;
 	border-radius: 10px;
 	padding: 12px 12px 10px;
 	overflow: hidden;
@@ -200,12 +218,12 @@
 	left: 0;
 	width: 5px;
 	height: 100%;
-	background: #E6E4FF;
+	background: #e6e4ff;
 }
 
 /* 진행중 테두리 (높음) */
 .high-color {
-	border: 1px solid #7FE8CF;
+	border: 1px solid #7fe8cf;
 }
 
 .high-color::before {
@@ -215,7 +233,7 @@
 	left: 0;
 	width: 5px;
 	height: 100%;
-	background: #7FE8CF;
+	background: #7fe8cf;
 }
 
 /* 진행중 테두리 (중간) */
@@ -250,7 +268,7 @@
 
 /* 완료 테두리 (높음) */
 .done-high-color {
-	border: 1px solid #FF9FBE;
+	border: 1px solid #ff9fbe;
 }
 
 .done-high-color::before {
@@ -260,7 +278,7 @@
 	left: 0;
 	width: 5px;
 	height: 100%;
-	background: #FF9FBE;
+	background: #ff9fbe;
 }
 
 /* 완료 테두리 (중간) */
