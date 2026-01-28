@@ -49,27 +49,27 @@
 
 			<!-- 대시 보드 -->
 			<section class="summary">
-				<div class="stat">
+				<div class="box stat">
 					<div class="stat-line"></div>
 					<div class="stat-label">Total Tasks</div>
 					<div class="stat-value totalCount">0</div>
 				</div>
-				<div class="stat">
+				<div class="box stat">
 					<div class="stat-line todoline"></div>
 					<div class="stat-label">To Do</div>
 					<div class="stat-value todoCount">0</div>
 				</div>
-				<div class="stat">
+				<div class="box stat">
 					<div class="stat-line progressline"></div>
 					<div class="stat-label">In Progress</div>
 					<div class="stat-value progressCount">0</div>
 				</div>
-				<div class="stat bot-left">
+				<div class="box stat bot-left">
 					<div class="stat-line doneline"></div>
 					<div class="stat-label">Done</div>
 					<div class="stat-value doneCount">0</div>
 				</div>
-				<div class="stat bot-right">
+				<div class="box stat bot-right">
 					<div class="stat-line achievementline"></div>
 					<div class="stat-label">Achievement</div>
 					<div class="stat-value achCount">-</div>
@@ -132,7 +132,8 @@
 					>
 						<div class="progressFill" id="progressFill"></div>
 						<div class="progressChar" id="progressChar" aria-hidden="true">
-							<img src="./img/rabbit.png" alt="" class="progressCharImg" />
+							<div class="fireworks-layer" aria-hidden="true"></div>
+							<img src="./img/rabbit.png" alt="" class="progressCharImg" />							
 						</div>
 					</div>
 					<div class="progressPct" id="progressPct">0%</div>
