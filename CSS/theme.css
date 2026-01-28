@@ -248,10 +248,19 @@ body.dark .del-all {
 	text-decoration: none !important;
 }
 
-/* 필터 조건 뱃지*/
+/* 필터 조건 뱃지 */
 /* 다크모드 */
 body.dark .filter-badges {
 	background: var(--bg);
+}
+
+/* 카피라이트 다크모드 */
+body.dark .copyright-footer {
+	border-top: 1px solid var(--bg);
+}
+
+body.dark .copyright {
+	color: #fff;
 }
 
 /* 버튼 호버 시 효과 */
