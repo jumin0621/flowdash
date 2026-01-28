@@ -135,13 +135,19 @@
 	border-color: transparent;
 }
 
-#high:checked + .priority-high {
+#high:checked + .priority-high,
+.badge-high {
+	color: #fff;
 	background: #e45774;
 }
-#mid:checked + .priority-mid {
+#mid:checked + .priority-mid,
+.badge-mid {
+	color: #fff;
 	background: #5c4bff;
 }
-#low:checked + .priority-low {
+#low:checked + .priority-low,
+.badge-low {
+	color: #fff;
 	background: #2fbf71;
 }
 
