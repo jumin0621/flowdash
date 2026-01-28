@@ -112,7 +112,7 @@ body.dark .myLineStatus {
 /* 검색/필터/정렬 */
 body.dark .sorting input,
 body.dark .sorting select {
-  background: var(--field);
+  background-color: var(--field);
   border: 1px solid var(--card-border);
   color: var(--text);
 }
@@ -265,4 +265,11 @@ body.dark .close:active {
 body.dark .xbtn {
   background-color: var(--field);
   color: #fff;
+}
+/* select 옵션 화살표 이미지 */
+body.dark .filter {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'><path d='M1 1 L6 7 L11 1' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 14px 16px;
 }
