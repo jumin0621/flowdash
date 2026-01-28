@@ -117,7 +117,7 @@
 .progressRow {
 	display: flex;
 	align-items: center;
-	gap: 20px;
+	gap: 30px;
 	margin-top: 14px;
 	padding: 0;
 }
@@ -202,15 +202,18 @@
 /* 폭죽 레이어: 토끼 뒤 */
 .fireworks-layer {
     position: absolute;
-    inset: -40px;          
-    z-index: 1;            
+    inset: -60px;
+    z-index: 1;
     pointer-events: none;
     opacity: 0;
     filter: drop-shadow(0 0 14px rgba(120, 130, 255, 0.45));
 }
 
-/* 별가루 점*/
+/* ✅ 연속 폭죽(배경 점 + infinite 애니메이션 같이) */
 .fireworks-layer.is-on {
+    opacity: 1;
+
+    /* 별가루 점(이게 없으면 아무 것도 안 보임) */
     background:
         radial-gradient(circle at 12% 18%, rgba(159,230,255,0.95) 0 3px, transparent 4px),
         radial-gradient(circle at 22% 10%, rgba(255,255,255,0.85) 0 2px, transparent 3px),
@@ -238,34 +241,14 @@
         radial-gradient(circle at 54% 88%, rgba(139,125,255,0.90) 0 3px, transparent 4px),
         radial-gradient(circle at 64% 74%, rgba(255,255,255,0.75) 0 2px, transparent 3px),
         radial-gradient(circle at 74% 86%, rgba(127,232,207,0.90) 0 3px, transparent 4px),
-        radial-gradient(circle at 84% 76%, rgba(255,208,178,0.90) 0 3px, transparent 4px),
+        radial-gradient(circle at 84% 76%, rgba(255,208,178,0.90) 0 3px, transparent 4px);
 
-        radial-gradient(circle at 18% 30%, rgba(255,255,255,0.55) 0 1.5px, transparent 3px),
-        radial-gradient(circle at 36% 36%, rgba(255,255,255,0.55) 0 1.5px, transparent 3px),
-        radial-gradient(circle at 58% 34%, rgba(255,255,255,0.55) 0 1.5px, transparent 3px),
-        radial-gradient(circle at 76% 38%, rgba(255,255,255,0.55) 0 1.5px, transparent 3px),
-        radial-gradient(circle at 28% 64%, rgba(255,255,255,0.55) 0 1.5px, transparent 3px),
-        radial-gradient(circle at 52% 66%, rgba(255,255,255,0.55) 0 1.5px, transparent 3px),
-        radial-gradient(circle at 74% 64%, rgba(255,255,255,0.55) 0 1.5px, transparent 3px);
-
-    animation: fireworksPopMega 1.25s ease-out 1;
+    animation: starFireworks 0.6s ease-in-out infinite;
 }
 
-/* 연타 폭죽 */
-@keyframes fireworksPopMega {
-    0%   { opacity: 0; transform: scale(0.55); }
-    10%  { opacity: 1; transform: scale(1.05); }
-    22%  { opacity: 0; transform: scale(1.35); }
-
-    30%  { opacity: 0; transform: scale(0.60); }
-    40%  { opacity: 1; transform: scale(1.08); }
-    52%  { opacity: 0; transform: scale(1.42); }
-
-    60%  { opacity: 0; transform: scale(0.65); }
-    70%  { opacity: 1; transform: scale(1.10); }
-    82%  { opacity: 0; transform: scale(1.48); }
-
-    88%  { opacity: 0; transform: scale(0.70); }
-    95%  { opacity: 1; transform: scale(1.12); }
-    100% { opacity: 0; transform: scale(1.55); }
+@keyframes starFireworks {
+    0%   { opacity: 0.0; transform: scale(0.75); }
+    30%  { opacity: 1.0; transform: scale(1.00); }
+    70%  { opacity: 1.0; transform: scale(1.05); }
+    100% { opacity: 0.0; transform: scale(0.90); }
 }
