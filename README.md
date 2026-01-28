@@ -99,7 +99,7 @@ https://jumin0621.github.io/flowdash/
   ```bash
   - 생성 시: 입력 일자 표시 (YYYY. MM. DD HH:mm)
   - 수정 또는 진행 중 상태 변경 시: 수정 일자 추가 표시 (YYYY. MM. DD HH:mm)
-  - 완료 상태 변경 시: 수정일자 대신 완료일자 표시
+  - 완료 상태 변경 시: 수정일자 대신 완료일자 표시 (YYYY. MM. DD HH:mm)
   ```
   - 빈 데이터 처리
   ```bash
