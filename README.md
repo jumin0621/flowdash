@@ -107,14 +107,14 @@ https://jumin0621.github.io/flowdash/
   ```
   - 데이터 모델 구조
   ```bash
-  - id
-  - title
-  - content
-  - priority
-  - status
-  - createdAt
-  - updatedAt
-  - completedAt
+  - id             #고유ID
+  - title          #제목
+  - content        #내용
+  - priority       #우선순위(high/mid/low)
+  - status         #상태(todo/doing/done)
+  - createdAt      #등록일
+  - updatedAt      #수정일
+  - completedAt    #완료일
   ```
 
 - **필터/정렬/통계**:
