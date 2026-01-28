@@ -85,25 +85,18 @@ function initNickname() {
 // 다짐 박스 
 function initMyLine() {
     const myLineInput = document.querySelector("#myLineInput");
-    const myLineSaveBtn = document.querySelector("#myLineSaveBtn");
-    const myLineClearBtn = document.querySelector("#myLineClearBtn");
-    const myLineStatus = document.querySelector("#myLineStatus");
+    const myLineActionBtn = document.querySelector("#myLineSaveBtn"); // ✅ 하나로 통일
 
-    if (!myLineInput || !myLineSaveBtn || !myLineClearBtn) return;
+    if (!myLineInput || !myLineActionBtn) return;
 
     const SAVED_COLOR = "#8b7dff";
-
 
     function getEditColor() {
         const isDark = document.documentElement.getAttribute("data-theme") === "dark";
         return isDark ? "#ffffff" : "#111111";
     }
 
-    function getMyLineKey() {
-    return LS_KEYS.MYLINE;
-    }
-
-    const storageKey = getMyLineKey();
+    const storageKey = LS_KEYS.MYLINE;
 
     function applyMyLineStyle(isSaved) {
         if (isSaved) {
@@ -115,63 +108,72 @@ function initMyLine() {
         }
     }
 
-    let statusTimerId = null;
+// 버튼 상태 토글 (저장 ↔ 삭제)
+function setButtonMode(mode) {
+    // mode: "save" | "delete"
+    myLineActionBtn.dataset.mode = mode;
+    myLineActionBtn.textContent = mode === "delete" ? "삭제" : "저장";
 
-    function setStatus(message) {
-        if (!myLineStatus) return;
-
-        myLineStatus.textContent = message;
-
-        window.clearTimeout(statusTimerId);
-        statusTimerId = window.setTimeout(() => {
-            myLineStatus.textContent = "";
-        }, 1500);
-    }
+    // 저장/삭제 모두 같은 색 유지
+    myLineActionBtn.classList.add("pill-btn-primary");
+}
 
     // 처음 로딩 시 저장된 다짐 불러오기
     const saved = getItem(storageKey) || "";
     showMyLine(saved);
-    applyMyLineStyle(Boolean(saved.trim()));
 
-    // 다짐 저장 기능
-    function saveMyLine() {
-        const text = myLineInput.value.trim();
+    const hasSaved = Boolean(saved.trim());
+    applyMyLineStyle(hasSaved);
+    setButtonMode(hasSaved ? "delete" : "save");
 
-        if (!text) {
-            showMyLine("");
-            applyMyLineStyle(false);
-            setStatus("빈 문장은 저장 불가");
-            myLineInput.focus();
-            return;
-        }
+function saveMyLine() {
+    const text = myLineInput.value.trim();
 
-        setItem(storageKey, text);
-        setStatus("저장 완료");
-
-        applyMyLineStyle(true);
-        myLineInput.blur();
-    }
-
-    function clearMyLine() {
-        removeItem(storageKey);
+    if (!text) {
         showMyLine("");
-        setStatus("삭제 완료");
-
         applyMyLineStyle(false);
-        myLineInput.blur();
+        setButtonMode("save");
+        myLineInput.focus();
+        return;
     }
+
+    setItem(storageKey, text);
+
+    applyMyLineStyle(true);
+    setButtonMode("delete");
+    myLineInput.blur();
+}
+
+function clearMyLine() {
+    removeItem(storageKey);
+    showMyLine("");
+
+    applyMyLineStyle(false);
+    setButtonMode("save");
+    myLineInput.focus();
+}
+
 
     // 입력창 클릭 시 편집 모드 스타일 적용
     myLineInput.addEventListener("focus", () => {
         applyMyLineStyle(false);
     });
 
-    // 버튼 이벤트 연결
-    myLineSaveBtn.addEventListener("click", saveMyLine);
-    myLineClearBtn.addEventListener("click", clearMyLine);
+    // 버튼 클릭: 현재 모드에 따라 저장/삭제
+    myLineActionBtn.addEventListener("click", () => {
+        const mode = myLineActionBtn.dataset.mode || "save";
+        if (mode === "delete") {
+            clearMyLine();
+            return;
+        }
+        saveMyLine();
+    });
 
-    // Enter 키로 저장하기
+    // Enter 키: 저장
     myLineInput.addEventListener("keydown", (e) => {
+        // 한글 조합 중이면 Enter 저장 금지
+        if (e.isComposing) return;
+
         if (e.key === "Enter") {
             e.preventDefault();
             saveMyLine();
@@ -181,9 +183,10 @@ function initMyLine() {
 
 async function initDailyQuote() {
     const today = todayKey();
-    const storageKey = LS_KEYS.DAILY_QUOTE;
 
-    // 이미 저장된 명언 있는지 확인
+    // 날짜를 키에 포함 (하루 1번 고정)
+    const storageKey = `${LS_KEYS.DAILY_QUOTE}:${today}`;
+
     const savedRaw = getItem(storageKey);
 
     if (savedRaw) {
@@ -210,15 +213,15 @@ async function initDailyQuote() {
     }
 }
 
+
 // [실행부] 앱 시작 시 동작
+initTheme(); 
+bindThemeToggle(); 
 
-initTheme(); // 테마 먼저
-bindThemeToggle(); // 테마 버튼 연결
+initGreeting();
+initNickIcon(); 
+initNickname(); 
 
-initGreeting(); // 인사말
-initNickIcon(); // 아이콘
-initNickname(); // 닉네임
-
-showTodayDate(); // 날짜 표시
-bindNicknameEdit(); // 닉네임 수정 기능
+showTodayDate(); 
+bindNicknameEdit(); 
 initMyLine();
