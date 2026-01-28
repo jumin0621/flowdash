@@ -24,7 +24,7 @@ body {
 }
 
 .box {
-	background: #fff;
+	background: rgba(255, 255, 255, 0.92);
 	border: 2px solid #eee7ff;
 	border-radius: 14px;
 	padding: 16px;
@@ -65,4 +65,12 @@ body {
     box-shadow:
         0 0 0 1px rgba(139, 125, 255, 0.18),
         0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+/* 카드 그림자 보강 (라이트 모드) */
+.box,
+.todo-card,
+.progress-card,
+.done-card {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }

@@ -21,6 +21,11 @@
 	font-weight: 600;
 }
 
+#greetingMessage,
+.nickname-suffix {
+    font-size: 20px;
+}
+
 .greeting-sub {
 	font-size: 12px;
 	color: #777;

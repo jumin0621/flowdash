@@ -5,39 +5,39 @@
 	gap: 12px;
 }
 .stat {
-	padding: 12px;
+	padding: 18px;
 	display: flex;
-	gap: 12px;
+	gap: 10px;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	border: 1px dashed #d1d5db;
+	border: 1px solid #d1d5db;
 	border-radius: 14px;
 	font-size: 20px;
 	background-color: #fff;
 }
 .stat-line {
-	width: 70%;
+	width: 50%;
 	height: 15px;
 	border-radius: 12px;
-	background-color: #8b7dff;
+	background-color: #ffd0b2;
 	transform: scale(1);
 	transition: transform 0.4s ease-in-out;
 }
 .todoline {
-	background-color: #ff9fbe;
+	background-color: #8b7dff;
 }
 .progressline {
 	background-color: #7fe8cf;
 }
 .doneline {
-	background-color: #ffd0b2;
+	background-color: #ff9fbe;
 }
 .achievementline {
 	background-color: #9fe6ff;
 }
 .stat-label {
-	font-size: 20px;
+	font-size: 15px;
 	color: #666;
 	font-weight: 600;
 }
@@ -45,6 +45,6 @@
 	transform: scale(1.1);
 }
 .stat-value {
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 800;
 }
