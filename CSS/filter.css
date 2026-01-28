@@ -6,7 +6,7 @@
 }
 .sort {
   height: 40px;
-  padding-left: 10px;
+  padding-left: 20px;
   border-radius: 24px;
   border: 1px solid #e6e8ef;
   font-size: 16px;
@@ -57,7 +57,7 @@
   -webkit-appearance: none; /* 크롬, 사파리, 엣지 (WebKit/Blink 계열) */
   -moz-appearance: none; /* 파이어폭스 전용 */
 
-  background-image: url("https://search.pstatic.net/sunny/?src=https%3A%2F%2Fst2.depositphotos.com%2F4441075%2F9801%2Fv%2F450%2Fdepositphotos_98013878-stock-illustration-arrow-pointing-down-icon.jpg&type=sc960_832");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'><path d='M1 1 L6 7 L11 1' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
   background-repeat: no-repeat;
   background-position: right 16px center;
   background-size: 14px 16px;
