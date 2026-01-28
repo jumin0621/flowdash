@@ -6,10 +6,14 @@ const periodSelect = document.querySelector(".select-filter");
 const prioritySelect = document.querySelector(".priority-filter");
 // 제목 정렬 필터 이벤트 변수
 const titleSortSelect = document.querySelector(".title-sort");
+// 검색창 이벤트 변수
+const searchInput = document.querySelector(".search");
+console.log("searchInput:", searchInput);
 
 export let currentPeriod = periodSelect?.value ?? "total";
 export let currentPriority = prioritySelect?.value ?? "priority";
 export let currentTitle = titleSortSelect?.value ?? "nomal-title";
+export let currentKeyword = "";
 
 // 기간 필터 정렬 함수
 export function filterPeriod(list, period) {
@@ -73,7 +77,22 @@ export function sortTitle(list, sortType) {
   });
   return titleCopy;
 }
-// select 이벤트 체인지
+
+// 기간및 우선순위 정렬 결과내에서 검색-----------------------------------------------
+export function filterKeyword(list, keyword) {
+  const key = (keyword ?? "").trim().toLowerCase();
+
+  if (!key) return list;
+
+  return list.filter((todo) => {
+    const title = (todo.title ?? "").toLowerCase();
+    const content = (todo.content ?? "").toLowerCase();
+
+    return title.includes(key) || content.includes(key);
+  });
+}
+
+// select 이벤트 체인지==============================================================
 // 기간 정렬
 if (periodSelect) {
   periodSelect.addEventListener("change", (e) => {
@@ -97,3 +116,19 @@ if (titleSortSelect) {
     render();
   });
 }
+// 검색창
+if (searchInput) {
+  searchInput.addEventListener("input", (e) => {
+    currentKeyword = e.target.value.trim();
+    render();
+  });
+}
+// 검색창 x 버튼 초기화
+const xbtn = document.querySelector(".xbtn");
+xbtn.addEventListener("click", () => {
+  console.log("X 클릭됨");
+  searchInput.value = "";
+  currentKeyword = "";
+  render();
+  searchInput.focus();
+});
