@@ -92,7 +92,7 @@
 						class="myLineInput"
 						placeholder="오늘의 다짐 한 줄 (예: 10분만 해도 승리)"
 						aria-label="나의 한 줄 입력"
-						autocomplete="new-password" 
+						autocomplete="new-password"
 					/>
 
 					<div class="myLineActions">
@@ -268,7 +268,10 @@
 							</div>
 							<button class="del-all" type="button">전체 삭제</button>
 						</header>
-						<div class="empty-msg">할 일 목록이 비어있습니다.</div>
+						<div class="empty-msg">
+							<img class="empty-icon" src="./img/rainbow.png" alt="" />
+							<p class="empty-text">일정이 비어있습니다.</p>
+						</div>
 					</article>
 
 					<!-- 진행 중 -->
@@ -280,7 +283,10 @@
 							</div>
 							<button class="del-all" type="button">전체 삭제</button>
 						</header>
-						<div class="empty-msg">진행중인 일정이 없습니다.</div>
+						<div class="empty-msg">
+							<img class="empty-icon" src="./img/rainbow.png" alt="" />
+							<p class="empty-text">진행 중인 일이 없습니다.</p>
+						</div>
 					</article>
 
 					<!-- 완료 -->
@@ -292,7 +298,10 @@
 							</div>
 							<button class="del-all" type="button">전체 삭제</button>
 						</header>
-						<div class="empty-msg">완료된 일정이 없습니다.</div>
+						<div class="empty-msg">
+							<img class="empty-icon" src="./img/rainbow.png" alt="" />
+							<p class="empty-text">완료된 일이 없습니다.</p>
+						</div>
 					</article>
 				</section>
 			</div>

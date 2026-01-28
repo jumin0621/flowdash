@@ -1,49 +1,49 @@
 /* ============ Background image layer ============ */
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background: center/cover no-repeat;
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: -2;
+	background: center/cover no-repeat;
 }
 
 body:not(.dark)::before {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2)),
-    url("../img/light.png");
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2)),
+		url("../img/light.png");
 }
 
 body.dark::before {
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
-    url("../img/dark.png");
+	background-image:
+		linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
+		url("../img/dark.png");
 }
 
 /* ============ Dark Mode ============ */
 /* 다크 테마 변수 */
 body.dark {
-  --bg: #0e1024; /* 전체 배경색 */
-  --text: #f2f4ff; /* 기본 글자색 */
+	--bg: #0e1024; /* 전체 배경색 */
+	--text: #f2f4ff; /* 기본 글자색 */
 
-  --card: #171a3a; /* 큰 카드(박스) 배경색 */
-  --card-border: #3e4299; /* 큰 카드 테두리색 */
-  --card-shadow: 0 12px 28px rgba(0, 0, 0, 0.55); /* 큰 카드 그림자 */
+	--card: #171a3a; /* 큰 카드(박스) 배경색 */
+	--card-border: #3e4299; /* 큰 카드 테두리색 */
+	--card-shadow: 0 12px 28px rgba(0, 0, 0, 0.55); /* 큰 카드 그림자 */
 
-  --field: #20245a; /* 입력/필드 배경색 */
-  --task: #2a2f78; /* 할 일 카드 배경색 */
-  --task-border: #4c52b3; /* 할 일 카드 테두리색 */
-  --task-shadow: 0 10px 24px rgba(0, 0, 0, 0.5); /* 할 일 카드 그림자 */
+	--field: #20245a; /* 입력/필드 배경색 */
+	--task: #2a2f78; /* 할 일 카드 배경색 */
+	--task-border: #4c52b3; /* 할 일 카드 테두리색 */
+	--task-shadow: 0 10px 24px rgba(0, 0, 0, 0.5); /* 할 일 카드 그림자 */
 
-  --muted: #c9ccff; /* 보조 텍스트 색 */
-  --placeholder: #b9bdf2; /* placeholder 색 */
+	--muted: #c9ccff; /* 보조 텍스트 색 */
+	--placeholder: #b9bdf2; /* placeholder 색 */
 
-  --primary: #2f8fee; /* 강조 버튼 색 */
+	--primary: #2f8fee; /* 강조 버튼 색 */
 }
 
 /* 전체 화면 다크 적용 */
 body.dark {
-  background: var(--bg);
-  color: var(--text);
+	background: var(--bg);
+	color: var(--text);
 }
 
 /* 큰 컨테이너 카드 공통 */
@@ -53,51 +53,51 @@ body.dark .progress-card,
 body.dark .done-card,
 body.dark .sorting,
 body.dark .summary .stat {
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  box-shadow: var(--card-shadow);
+	background: var(--card);
+	border: 1px solid var(--card-border);
+	box-shadow: var(--card-shadow);
 }
 
 /* 오늘의 다짐 박스 */
 body.dark .myLineBox {
-  background: var(--field);
-  border: 1px solid var(--card-border);
+	background: var(--field);
+	border: 1px solid var(--card-border);
 }
 
 /* 오늘의 다짐 input */
 body.dark #myLineInput.myLineInput,
 body.dark .myLineInput {
-  background: transparent;
-  color: var(--text);
-  -webkit-text-fill-color: var(--text);
-  caret-color: var(--text);
+	background: transparent;
+	color: var(--text);
+	-webkit-text-fill-color: var(--text);
+	caret-color: var(--text);
 }
 
 /* 오늘의 다짐 placeholder */
 body.dark #myLineInput.myLineInput::placeholder,
 body.dark .myLineInput::placeholder {
-  color: var(--placeholder);
-  opacity: 1;
+	color: var(--placeholder);
+	opacity: 1;
 }
 
 /* 오늘의 다짐 저장 상태 */
 body.dark #myLineInput.myLineInput.is-centered,
 body.dark .myLineInput.is-centered {
-  color: #c3bef2;
-  -webkit-text-fill-color: #c3bef2;
-  caret-color: #c3bef2;
+	color: #c3bef2;
+	-webkit-text-fill-color: #c3bef2;
+	caret-color: #c3bef2;
 }
 
 /* 할 일 카드 */
 body.dark .task {
-  background: var(--task);
-  border: 1px solid var(--task-border);
-  box-shadow: var(--task-shadow);
+	background: var(--task);
+	border: 1px solid var(--task-border);
+	box-shadow: var(--task-shadow);
 }
 
 /* 할 일 카드 텍스트 */
 body.dark .task-title {
-  color: var(--text);
+	color: var(--text);
 }
 
 body.dark .task-desc,
@@ -106,33 +106,33 @@ body.dark .empty p,
 body.dark .quoteLineText,
 body.dark .quoteLineMeta,
 body.dark .myLineStatus {
-  color: var(--muted);
+	color: var(--muted);
 }
 
 /* 검색/필터/정렬 */
 body.dark .sorting input,
 body.dark .sorting select {
-  background-color: var(--field);
-  border: 1px solid var(--card-border);
-  color: var(--text);
+	background: var(--field);
+	border: 1px solid var(--card-border);
+	color: var(--text);
 }
 /* 대시보드 라벨 색상*/
 body.dark .stat-label {
-  color: var(--text);
+	color: var(--text);
 }
 body.dark .sorting input::placeholder {
-  color: var(--placeholder);
+	color: var(--placeholder);
 }
 
 body.dark select {
-  background: #ffffff;
-  color: #111111;
-  border: 1px solid #e6e8ef;
+	background: #ffffff;
+	color: #111111;
+	border: 1px solid #e6e8ef;
 }
 
 body.dark select option {
-  background: #ffffff;
-  color: #111111;
+	background: #ffffff;
+	color: #111111;
 }
 
 /* 구분선/추가줄 */
@@ -144,62 +144,114 @@ body.dark .add-todo-bar,
 body.dark .divider,
 body.dark .separator,
 body.dark .line {
-  background: var(--card);
-  color: var(--text);
-  border-color: var(--card-border);
+	background: var(--card);
+	color: var(--text);
+	border-color: var(--card-border);
 }
 
 /* 버튼 공통 */
 body.dark .pill-btn,
 body.dark .del-all,
 body.dark .btn {
-  background: var(--field);
-  border: 1px solid var(--card-border);
-  color: var(--text);
+	background: var(--field);
+	border: 1px solid var(--card-border);
+	color: var(--text);
 }
 
 body.dark .modal .pill-btn,
 body.dark .modal .del-all,
 body.dark .modal .btn {
-  background: #ffffff;
-  border: 1px solid #e6e8ef;
-  color: #111111;
+	background: #ffffff;
+	border: 1px solid #e6e8ef;
+	color: #111111;
 }
 
 /* 다크모드 토글 버튼 */
 body.dark .togg-icon-btn {
-  background: var(--task);
-  border: 1px solid var(--task-border);
-  color: var(--text);
+	background: var(--task);
+	border: 1px solid var(--task-border);
+	color: var(--text);
 }
 
 /* 저장 버튼 */
 body.dark .pill-btn-primary {
-  background: var(--primary);
-  color: #ffffff;
+	background: var(--primary);
+	color: #ffffff;
 }
 
 /* + 새 할일버튼 */
 body.dark .sorting .add-btn {
-  background: #8b7dff;
-  color: #ffffff;
-  border: none;
+	background: #8b7dff;
+	color: #ffffff;
+	border: none;
 }
 
 /* 게이지 바 */
 body.dark .progressBar {
-  background: var(--field);
+	background: var(--field);
 }
 
-/* 모달 박스(팝업 창) - 라이트처럼 유지 */
+/* 모달 박스(팝업 창) */
+/* 다크모드 */
 body.dark .modal {
-  background: #ffffff;
-  color: #111111;
+	background: var(--bg);
+	color: var(--text);
+	-webkit-text-fill-color: var(--text);
+	caret-color: var(--text);
 }
 
-/* 다크 모드 */
+body.dark .modal {
+	border: 1px solid var(--card-border);
+}
+
+body.dark .modal input,
+body.dark .modal textarea,
+body.dark .modal .select,
+body.dark .modal label {
+	background: var(--bg);
+}
+
+body.dark .modal input,
+body.dark .modal textarea,
+body.dark .modal .priority,
+body.dark .modal .select {
+	border: 1px solid var(--card-border);
+}
+
+body.dark .modal .btn-text:hover {
+	background: var(--bg);
+	opacity: 0.3;
+}
+
+/* 모달창 바깥 영역 흐리게 */
 body.dark .modal-wrap {
-  background: rgba(0, 0, 0, 0.3);
+	background: rgba(0, 0, 0, 0.8);
+}
+
+/* 칸반보드 내용 */
+/* 다크모드 */
+body.dark .empty-msg {
+	background: var(--bg);
+	border: 2px dashed rgba(120, 120, 160, 0.3);
+	border-radius: 14px;
+	padding: 28px 18px;
+	margin: 14px;
+	display: none;
+	text-align: center;
+}
+
+/* 할 일 전체삭제 */
+/* 다크모드 */
+body.dark .del-all {
+	background: none;
+	border: none;
+	text-decoration: none !important;
+}
+
+/* 필터 조건 뱃지*/
+/* 다크모드 */
+body.dark .filter-badges {
+	background: var(--bg);
 }
 
 /* 버튼 호버 시 효과 */
@@ -207,47 +259,47 @@ body.dark .modal-wrap {
 /* 공통: 버튼 계열(삭제 버튼 포함) */
 body.dark .pill-btn:hover,
 body.dark .btn:hover {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(159, 230, 255, 0.35);
-  box-shadow:
-    0 0 0 1px rgba(159, 230, 255, 0.16),
-    0 8px 18px rgba(0, 0, 0, 0.35);
-  transform: translateY(-1px);
+	background: rgba(255, 255, 255, 0.07);
+	border-color: rgba(159, 230, 255, 0.35);
+	box-shadow:
+		0 0 0 1px rgba(159, 230, 255, 0.16),
+		0 8px 18px rgba(0, 0, 0, 0.35);
+	transform: translateY(-1px);
 }
 
 /* 저장 버튼 */
 body.dark .pill-btn.pill-btn-primary:hover {
-  background: #047df6;
-  border-color: rgba(159, 230, 255, 0.45);
-  box-shadow:
-    0 0 0 1px rgba(159, 230, 255, 0.18),
-    0 8px 18px rgba(0, 0, 0, 0.35);
-  transform: translateY(-1px);
+	background: #047df6;
+	border-color: rgba(159, 230, 255, 0.45);
+	box-shadow:
+		0 0 0 1px rgba(159, 230, 255, 0.18),
+		0 8px 18px rgba(0, 0, 0, 0.35);
+	transform: translateY(-1px);
 }
 
 /* 전체 삭제 버튼 */
 body.dark .del-all:hover {
-  color: #ffb3c9;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  opacity: 0.95;
+	color: #ffb3c9;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	opacity: 0.95;
 }
 
 /* + 새 할일(추가 버튼) */
 body.dark .sorting .add-btn:hover,
 body.dark .add-btn:hover {
-  background: #6f60f5; /* 더 진한 보라 */
-  border: 1px solid #6f60f5;
-  box-shadow:
-    0 0 0 1px rgba(139, 125, 255, 0.35),
-    0 8px 18px rgba(0, 0, 0, 0.45);
-  transform: translateY(-1px);
+	background: #6f60f5; /* 더 진한 보라 */
+	border: 1px solid #6f60f5;
+	box-shadow:
+		0 0 0 1px rgba(139, 125, 255, 0.35),
+		0 8px 18px rgba(0, 0, 0, 0.45);
+	transform: translateY(-1px);
 }
 
 /* 카드 닫기 X 버튼  */
 body.dark .close:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
+	background: rgba(255, 255, 255, 0.08);
+	color: #ffffff;
 }
 
 /* 클릭 시(눌림) 공통 */
@@ -256,20 +308,20 @@ body.dark .btn:active,
 body.dark .togg-icon-btn:active,
 body.dark .add-btn:active,
 body.dark .close:active {
-  transform: translateY(0) scale(0.98);
-  box-shadow:
-    0 0 0 1px rgba(159, 230, 255, 0.1),
-    0 5px 12px rgba(0, 0, 0, 0.45);
+	transform: translateY(0) scale(0.98);
+	box-shadow:
+		0 0 0 1px rgba(159, 230, 255, 0.1),
+		0 5px 12px rgba(0, 0, 0, 0.45);
 }
 /* 검색창 포커스 시 x 버튼 */
 body.dark .xbtn {
-  background-color: var(--field);
-  color: #fff;
+	background-color: var(--field);
+	color: #fff;
 }
 /* select 옵션 화살표 이미지 */
 body.dark .filter {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'><path d='M1 1 L6 7 L11 1' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 16px center;
-  background-size: 14px 16px;
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'><path d='M1 1 L6 7 L11 1' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+	background-repeat: no-repeat;
+	background-position: right 16px center;
+	background-size: 14px 16px;
 }
