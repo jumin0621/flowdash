@@ -1,251 +1,265 @@
+# 5조 Task Overflow
 
-<br/>
-<br/>
+> 공통 과제: 칸반 기반 태스크 관리 대시보드  
+> 팀원: 신주민, 장미진, 신진호  
+> 저장소: [GitHub](https://github.com/jumin0621/flowdash)
+> 배포: [GitHub Pages](https://jumin0621.github.io/flowdash/)
 
-# 0. Getting Started (서비스 URL)
-```bash
-https://jumin0621.github.io/flowdash/
+---
+
+## 0. 프로젝트 개요 (Project Overview)
+
+본 프로젝트는 공통 요구사항을 기반으로 한  
+칸반 형태의 태스크 관리 대시보드 구현 과제이다.
+
+CRUD, 기간 필터, 통계, 테마 및 UX 요소를 포함하며  
+팀 단위 협업을 통해 설계 및 구현을 진행했다.
+
+추가로 위인들의 명언과 본인을 위한 한마디를 통해  
+동기부여를 제공하고자 하였다.
+
+---
+
+## 1. 팀 구성 및 역할 분담 (Team & Roles)
+
+| 이름   | 역할              | 주요 담당                   | 비고      |
+| ------ | ----------------- | --------------------------- | --------- |
+| 신주민 | UI디자인 / UX개발 | 칸반보드 / 모달             |           |
+| 장미진 | UI디자인 / UX개발 | 인사말 / 명언 / 테마        | UI/UX기획 |
+| 신진호 | UI디자인 / UX개발 | 통계 대시보드 / 검색 / 필터 | UI기획    |
+
+- 역할은 초기 합의 후 고정
+- 서로가 서로에게 의지할 수 있는 구조로 역할을 분담
+
+---
+
+## 2. 수행 절차 및 방법 (Process & Strategy)
+
+### 2-1. 진행 순서
+
+1. 요구사항 전체 리뷰
+2. UI/UX 추가 기획
+3. UI 구현
+4. 테마 / 반응형 구현
+5. UX 구현 및 개발
+6. 통합
+
+### 2-2. 협업 규칙
+
+- 브랜치 전략: main / dev / feature/{기능명}
+- PR 단위: 기능 1개 기준이나 필요시 여러개 PR 가능
+- PR 전 rebase 필수
+
+---
+
+## 3. 프로젝트 구조 및 아키텍처
+
+### 3-1. 디렉터리 구조
+
 ```
-
-<br/>
-<br/>
-
-# 1. Project Overview (프로젝트 개요)
-- 프로젝트명: To-do List
-- 프로젝트 설명
-  - 일정을 등록하고 대시보드 통계를 통해 달성률을 확인할 수 있다.
-  - 위인들의 명언과 하루 한마디를 통해 동기부여를 제공한다.
-
-<br/>
-<br/>
-
-# 2. Team Members (팀원)
-| 신주민 | 장미진 | 신진호 | 
-|:------:|:------:|:------:|
-| <img src="https://github.com/user-attachments/assets/1a6ccf79-2dcb-4977-8525-40158da4f66f" alt="신주민" width="150"> | <img src="https://github.com/user-attachments/assets/004573de-279e-49b2-a6dd-a9e7d13a6f20" alt="장미진" width="150"> | <img src="https://github.com/user-attachments/assets/2c4b5cf7-47e7-4174-96eb-2c79208f3790" alt="신진호" width="150"> |
-| PL | FE | FE |
-| [GitHub](https://github.com/jumin0621) | [GitHub](https://github.com/Winter-Haeum) | [GitHub](https://github.com/sjh83) |
-
-<br/>
-<br/>
-
-# 3. Features (주요 기능)
-- **사용자 정보 및 개인**:
-  - 시간대별 인사 문구출력
-  ```bash
-  - 05–11 좋은 아침이에요
-  - 11–17 좋은 오후에요
-  - 17–22 좋은 저녁이에요
-  - 그 외 안녕하세요
-  ```
-  - 닉네임 수정
-  ```bash
-  - 인사 문구에 닉네임 표시 (예: 좋은 아침이에요, FlowDash님)
-  - 닉네임 영역 클릭 시 인라인 수정 가능
-  - Enter 또는 blur 시 저장
-  - 빈 값 입력 시 이전 값 또는 기본값으로 복원
-  - 닉네임은 LocalStorage에 저장
-  - 초기 닉네임 기본값: FlowDash
-  ```
-  - 다크모드/라이트모드 토글
-  ```bash
-  - 해/달 아이콘 클릭 시 라이트 ↔ 다크 모드 전환
-  - 선택된 테마는 LocalStorage에 저장되어 새로고침 후에도 유지
-  ```
-
-- **동기부여**:
-  - “오늘도 한 칸씩” 한 줄 다짐 저장/삭제.
-  ```bash
-  - 입력칸 오른쪽에 저장/삭제 버튼 제공
-  - 저장 시 저장 버튼이 삭제 버튼으로 바뀜
-  - 삭제 시 삭제 버튼이 저장 버튼으로 바뀜
-  - 문구는 LocalStorage에 저장되어 유지
-  ```
-  - 오늘의 명언 자동 표시
-  ```bash
-  - 하루 1회 자동 변경 (API 활용)
-  - 명언 오른쪽에 위인의 이름 함께 표시
-  ```
-
-- **할 일 관리 (Core)**:
-  - “+ 새 할 일” 버튼 → 모달 입력
-  ```bash
-  - 제목: 필수 입력
-  - 내용: 선택 입력
-  - 우선순위: 높음 / 중간 / 낮음 선택 가능
-  - 상태: 할일 / 진행중 / 완료 선택 가능
-  ```
-  - 우선순위 UI 규칙
-  ```bash
-  - 우선순위에 따른 테두리 색상 반영
-  ```
-  - 할 일 카드 구성(칸반보드)
-  ```bash
-  - 우선순위 색상에 따른 뱃지 형식의 라벨표시
-  - 완료시 투명도와 취소선으로 시각적 각인 효과
-  - 할일 목록이 많은 경우 자연스럽게 스크롤
-  - 보드 내부 스크롤은 시각적 효과를 위하여 invisible 처리
-  ```
-  - 삭제
-  ```bash
-  - 개별 카드 X 버튼 클릭 시 삭제 확인 모달 표시
-  - 문구: ex) “정말 삭제하시겠습니까?”
-  - 버튼: [확인], [취소]
-  - 확인 시 삭제, 취소 시 모달만 닫힘
-  - 전체 삭제 및 전체 데이터 초기화 기능도 동일한 방식의 모달 사용
-  - 전체 데이터 초기화 시 현재 필터 조건도 초기화
-  ```
-  - 날짜 표시 규칙
-  ```bash
-  - 생성 시: 입력 일자 표시 (YYYY. MM. DD HH:mm)
-  - 수정 또는 진행 중 상태 변경 시: 수정 일자 추가 표시 (YYYY. MM. DD HH:mm)
-  - 완료 상태 변경 시: 수정일자 대신 완료일자 표시 (YYYY. MM. DD HH:mm)
-  ```
-  - 빈 데이터 처리
-  ```bash
-  - 각 컬럼에 데이터가 없을 경우 “비어있음” 상태 UI 표시
-  ```
-  - 데이터 모델 구조
-  ```bash
-  - id             #고유ID
-  - title          #제목
-  - content        #내용
-  - priority       #우선순위(high/mid/low)
-  - status         #상태(todo/doing/done)
-  - createdAt      #등록일
-  - updatedAt      #수정일
-  - completedAt    #완료일
-  ```
-
-- **필터/정렬/통계**:
-  - 필터 드롭다운 3종
-  ```bash
-  - 기간: 전체 / 오늘 / 7일
-  - 우선순위: 높음 / 중간 / 낮음
-  - 정렬: 제목 오름차순(기본) / 제목 내림차순
-  ```
-  - 검적용된 필터 표시 (Active Filter)
-  ```bash
-  - 기간에서 “오늘” 선택 시 하단에 “기간: 오늘” 뱃지 형식 표시
-  - 위치: “전체 데이터 초기화” 버튼 왼쪽
-  - 기본값일 경우 표시하지 않음
-  ```
-  - 달성률 게이지
-  ```bash
-  - 전체 할 일 대비 완료 비율(%) 계산하여 게이지로 표시
-  - 귀여운 토끼 아이콘이 퍼센티지에 맞춰 이동
-  - 상단 통계 대시보드 영역은 다음 항목을 표시한다.
-    # Total Tasks(전체 Todo 개수)
-    # To Do(TODO 개수)
-    # In Progress(DOING 개수)
-    # Done(DONE 개수)
-    # Achievement(달성률 %)
-  - Achievement 계산식은 (DONE / 전체) * 100
-  - 전체 Todo가 0개일 경우 Achievement는 “-”로 표시
-  ```
-
-- **반응형 UI**:
-  - 모바일 화면부터 1열 레이아웃을 기준으로 반응형 UI를 구성한다
-  - 반응형 기준
-  ```bash
-  - @media (max-width: 767px) 
-  - @media (max-width: 1199px)
-  ```
-
-- **공통 저장 규칙 (LocalStorage Keys)**:
-  - LocalStorage 저장 키는 다음을 사용한다
-  ```bash
-  - flowdash-todos 할일
-  - flowdash-theme 테마
-  - flowdash-nickname 닉네임
-  ```
-  - 새로고침/재방문 시 LocalStorage에서 로드하여 최신 상태로 렌더링한다
-
-<br/>
-<br/>
-
-# 4. Tasks & Responsibilities (작업 및 역할 분담)
-|  |  |  |
-|----------------|-----------------|-----------------|
-| 신주민 |  <img src="https://github.com/user-attachments/assets/1a6ccf79-2dcb-4977-8525-40158da4f66f" alt="신주민" width="100"> | <ul><li>팀 리딩</li><li>UI디자인 및 구현</li><li>UX개발</li></li><li>기능구현<br>- 칸반보드, 새할일 등록 모달영역, 필터조건 뱃지화, 데이터 삭제 및 초기화</li></ul>     |
-| 장미진 |  <img src="https://github.com/user-attachments/assets/004573de-279e-49b2-a6dd-a9e7d13a6f20" alt="장미진" width="100"> | <ul><li>UI/UX기획</li><li>UI디자인 및 구현</li><li>UX개발</li></li><li>기능구현<br>- 인사말, 명언, 달성율 게이지화, 다크모드/라이트모드 테마</li></ul> |
-| 신진호 |  <img src="https://github.com/user-attachments/assets/2c4b5cf7-47e7-4174-96eb-2c79208f3790" alt="신진호" width="100"> | <ul><li>UI기획</li><li>UI디자인 및 구현</li><li>UX개발</li><li>기능구현<br>- 통계 대시보드, 검색/필터영역</li></ul>  |
-
-<br/>
-<br/>
-
-# 5. Technology Stack (기술 스택)
-## 5.1 Frontend
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="100"> | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="100"> | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="100"> |
-|:-----:|:-----:|:----------:|
-| HTML5 | CSS3  | JavaScript |
-
-<br/>
-
-## 5.2 Tools
-| <img src="https://github.com/user-attachments/assets/fb7aae51-5160-4ebe-bb9a-895132d65be8" width="100"> | <img src="https://github.com/user-attachments/assets/183c3748-d2d9-418d-94b1-1cdd35992d2a" alt="discord" width="100"> |
-|:------:|:-----:|
-| vsCode | Figma |
-
-<br/>
-
-## 5.3 Cooperation
-<img src="https://github.com/user-attachments/assets/2a1df8d3-c923-40ac-a514-c5b5decf87f5" alt="gitgub" width="100"> | <img src="https://github.com/user-attachments/assets/996905e5-0252-4729-840c-9babef6d42f4" alt="gitgub" width="100"> |
-|:------:|:-------:|
-| GitHub | Discord |
-
-<br/>
-
-# 6. Project Structure (프로젝트 구조)
-```bash
 flowdash/
-├── README.md                # 프로젝트 설명
-├── index.html               # HTML 템플릿 파일
-│                       
-├── CSS/
-│   ├── board.css            # 칸반보드 스타일
-│   ├── common.css           # 공통 스타일 정의
-│   ├── dashBoard.css        # 통계 대시보드 스타일
-│   ├── filter.css           # 검색/필터영역 스타일
-│   ├── greeting.css         # 인사말 스타일
-│   ├── modal.css            # 할일 등록 모달 스타일
-│   ├── motivation.css       # 명언 스타일
-│   ├── reset.css            # CSS 초기화
-│   ├── responsive.css       # 반응형 UI
-│   └── theme.css            # 다크/라이트 테마 스타일
-│  
-├── JS/
-│   ├── api.js               # API
-│   ├── dashboard.js         # 통계 대시보드
-│   ├── filter.js            # 검색/정렬/필터
-│   ├── main.js               
-│   ├── modal.js             # 닉네임
-│   ├── render.js            
-│   ├── store.js             # 스토리지 키
-│   ├── todos.js             # 투두리스트(칸반보드)
-│   └── progress.js          # 달성률게이지
-│  
-└── img/                     # 이미지
-
+├─ README.md
+├─ index.html
+├─ CSS/
+│  ├─ reset.css
+│  ├─ common.css
+│  ├─ theme.css
+│  ├─ greeting.css
+│  ├─ dashBoard.css
+│  ├─ motivation.css
+│  ├─ filter.css
+│  ├─ board.css
+│  ├─ modal.css
+│  └─ responsive.css
+├─ JS/
+│  ├─ api.js
+│  ├─ store.js
+│  ├─ main.js
+│  ├─ dashboard.js
+│  ├─ progress.js
+│  ├─ modal.js
+│  ├─ filter.js
+│  ├─ todos.js
+│  └─ render.js
+└─ img/
 ```
 
-<br/>
-<br/>
+### 3-2. 모듈 책임 분리
 
-# 7. Development Workflow (개발 워크플로우)
-## 브랜치 전략 (Branch Strategy)
-Github를 기반으로 하며, 다음과 같은 브랜치를 사용합니다.
+- store.js: LocalStorage IO 전담
+- dashboard.js: 통계 대시보드 랜더링
+- todos.js: 칸반보드 랜더링
+- filter.js: 검색/필터 영역 랜더링
 
-- Main Branch
-  - 최종 배포 상태의 코드만 유지합니다.
+### 3-3. 데이터 흐름
 
-- Dev Branch
-  - 모든 배포는 이 브랜치에서 이루어집니다.
-  
-- {기능명} Branch
-  - 팀원 각자의 개발 브랜치입니다.
-  - 모든 기능 개발은 이 브랜치에서 이루어집니다.
+user action (새할일 등록)  
+→ openModal()  
+→ formDate()  
+→ getNextId()  
+→ addTodo()  
+→ makeTask()  
+→ render()
 
-<br/>
-<br/>
+---
 
+## 4. 핵심 설계 결정 사항 (Design Decisions)
+
+- status(할일/진행중/완료) 기반 보드 분리
+- 할일 등록시 등록일, 수정시 수정일, 완료시 완료일 표시
+- 우선순위(높음/중간/낮음)에 따른 시각적 요소 필요
+- 기간 필터 → 정렬 → 검색 순서의 고정 파이프라인 적용
+- 통계는 기간 필터와 무관하게 전체 Todo 기준으로 계산
+- 달성률을 직관적으로 볼 수 있게 그래프화
+- 동기부여가 될 수 있는 무언가가 필요 (ex:위인들의 명언)
+- 라이트/다크모드 테마 제공
+- 반응형 레이아웃
+
+---
+
+## 5. 수행 결과 (Implementation Result)
+
+### 5-1. 구현 완료 기능
+
+- CRUD 전 기능
+- TODO / DOING / DONE 칸반 보드
+- 기간 필터 / 검색 / 정렬
+- 필터 조건이 있을 경우 하단에 뱃지 형식으로 조건을 표시
+- 통계 대시보드 및 달성률
+- 라이트 / 다크 테마
+- 인사말 및 닉네임, 명언 UX
+- 반응형 레이아웃
+
+### 5-2. 요구사항 충족 범위
+
+- 필수 요구사항: 충족
+- [o] Todo CRUD 기능이 모두 정상 동작한다 (생성 / 조회 / 수정 / 삭제)
+- [o] TODO / DOING / DONE 상태별 칸반 보드가 분리되어 렌더링된다
+- [o] status 변경 시 Todo가 즉시 해당 보드로 이동한다
+- [o] DONE 전환 시 completedAt이 기록되며, 해제 시 null로 초기화된다
+- [o] 우선순위(HIGH / MID / LOW)를 설정 및 수정할 수 있다
+- [o] 기간 필터(전체 / 오늘 / 7일)가 createdAt 기준으로 동작한다
+- [o] 필터 적용 순서(기간 → 정렬 → 검색)가 항상 유지된다
+- [o] 제목/내용 기준 검색이 필터 결과 내에서 정상 동작한다
+- [o] 제목 기준 오름차순 / 내림차순 정렬이 가능하다
+- [o] 통계 대시보드에 전체 / TODO / DOING / DONE / 달성률이 표시된다
+- [o] 달성률은 (DONE / 전체) \* 100 기준으로 계산된다
+- [o] 전체 초기화 시 Todo 데이터만 삭제되며 확인 절차가 존재한다
+- [o] 테마(Light / Dark) 전환이 가능하며 LocalStorage에 저장된다
+- [o] 인사말이 시간대 기준으로 표시된다
+- [o] 닉네임을 인라인으로 수정할 수 있으며 LocalStorage에 저장된다
+- [o] 새로고침 후에도 Todo / 테마 / 닉네임 상태가 유지된다
+- [o] 반응형 레이아웃이 Mobile / Tablet / Desktop 기준으로 동작한다
+- [o] 콘솔에 치명적인 에러가 발생하지 않는다
+- 가산 요소: (해당 시 작성)
+- [o] 디자인 커스터마이징
+- [o] UX 개선 아이디어 적용
+- [o] 예외 처리 강화 (빈 상태, 입력 검증 등)
+- [o] 추가 기능 구현 (요구사항 외)
+
+---
+
+## 6. 트러블슈팅 (Troubleshooting)
+
+### 6-1. 필터 조건 초기화
+
+- 증상: 우선순위를 적용한 뒤 정렬 버튼을 누르면
+  기존에 설정한 조건들이 초기화되는 문제가 발생
+
+- 원인: 각 기능이 자기 기준으로만 데이터를 다시 계산하고,
+  이전 단계의 결과를 다음 단계로 넘기지 않는 구조였음
+
+- 해결: 기간 필터 → 우선순위 필터 → 정렬 → 검색
+  이 순서로, 항상 이전 단계의 결과 배열을 다음 단계의 입력값으로 사용하도록 통일
+
+### 6-2. addEventListener
+
+- 증상: 칸반 보드에 아무 카드도 없을 때 새로고침을 하면
+  Cannot read properties of null (reading 'addEventListener') 오류 발생
+
+- 원인: 자바스크립트가 DOM보다 먼저 실행되거나,
+  선택한 요소가 아직 존재하지 않는 경우 발생
+
+- 해결: script 태그에 defer 속성을 추가해서,
+  DOM이 전부 생성된 이후에 JS가 실행되도록 수정
+
+### 6-3. 할일 수정시 오류
+
+- 증상: 할일을 수정하고 저장을 누르면,
+  기존 카드의 내용이 바뀌는 게 아니라 새롭게 추가됨
+
+- 원인: todo 객체에 고유 id가 없어서,
+  항상 새로운 데이터로 인식
+
+- 해결: 카드 생성 시 고유 id를 부여하고,
+  수정할 때는 id 기준으로 기존 항목을 찾도록 구조 수정
+
+### 6-4. Github
+
+- 증상: conflict를 해결한 뒤 코드가 중복되거나 일부가 삭제
+
+- 원인: 휴먼 에러
+
+- 해결: push(rebase)가 끝나면 본인을 제외한 팀원 한 명이
+  커밋 로그와 코드를 다시 한 번 확인하는 이중 검수 방식을 도입
+
+### 6-5. 달성률 게이지바
+
+- 증상: 진행률이 바뀔 때 게이지 바는 잘 움직이는데, 토끼 캐릭터가 따로 놀거나 살짝 밀리는 현상
+
+- 원인: 게이지 바는 CSS transition으로 자동으로 움직이고,
+  토끼 캐릭터는 자바스크립트로 위치를 계산해서 직접 이동
+
+- 해결: requestAnimationFrame을 사용해서,
+  브라우저가 DOM 렌더링을 끝낸 뒤에 토끼 위치를 계산하도록 수정
+
+### 6-6. macOS 한글입력
+
+- 증상: macOS 환경에서 한글을 입력한 뒤 Enter를 누르면,
+  마지막 글자가 한 번 더 추가되는 버그 발생
+
+- 원인: 한글 입력이 조합(composition) 단계를 거치는데,
+  macOS 브라우저에서는 Enter 이벤트가 글자 확정보다 먼저 발생해서
+  저장 로직이 두 번 실행되는 구조
+
+- 해결: Enter 키 이벤트 처리할 때, isComposing 사용으로
+  조합 중인 경우에는 로직을 아예 실행하지 않도록 수정
+
+---
+
+## 7. 자체 평가 및 회고 (Self Review)
+
+### 7-1. 잘한 점
+
+- 역할 분담이 명확해 병렬 작업이 가능했다
+- 사용자가 오래 보고, 오래 쓰고, 다시 돌아오고 싶은 화면을 만들자는
+  의도로 UI, UX, 색상, 애니메이션 같은 디테일 설계
+- 라이트 모드에서는 유백색을 채택하고 투명도를 낮춰서
+  배경이 너무 하얗게 튀지 않도록 조정하였고
+  다크 모드에서는 카드와 배경을 완전한 검정이 아니라
+  짙은 남색 계열로 구성해서 화면 대비에 신경씀
+- 할일의 중요도를 색상으로 표현하여 같은 상태에서도
+  우선순위가 한눈에 보이도록 설계
+
+### 7-2. 아쉬운 점
+
+- 칸반 보드의 드래그 앤 드롭 기능을 구현하지 못한 점
+- 포털사이트처럼 최근 검색어를 보여주는 기능을 구현하지 못한 점
+
+### 7-3. 다음에 개선할 점
+
+- 칸반 보드는 드래그 앤 드롭 기반으로 더 직관적으로
+- 검색 기능에는 최근 검색어 저장이나 자동완성 같은 기능 추가
+- 기록을 모아서 볼 수 있는 아카이브 페이지 제작
+
+---
+
+## 8. 실행 방법 (url)
+
+https://jumin0621.github.io/flowdash/
+
+---
+
+## 9. 결론
+
+기능 완성도는 높았지만, 사용자 경험을 더 확장할 수 있는 아이디어들을 전부 구현하지 못한 점이 가장 아쉬웠고, 그만큼 개선 방향도 분명한 프로젝트였습니다.
