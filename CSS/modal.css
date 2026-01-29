@@ -1,0 +1,186 @@
+.modal-wrap {
+	position: fixed;
+	inset: 0;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	background: rgba(0, 0, 0, 0.35);
+	z-index: 9999;
+}
+
+.modal-wrap.is-open {
+	display: flex;
+}
+
+.modal {
+	width: min(520px, 92vw);
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+	padding: 18px;
+}
+
+.modal-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: 20px;
+}
+
+.modal-title {
+	font-size: 20px;
+	font-weight: 800;
+}
+
+.modal-close {
+	border: 0;
+	background: none;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.modal-body {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+.modal-form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.label {
+	font-size: 12px;
+	font-weight: 700;
+	color: #333;
+}
+
+.req {
+	color: #ff3b88;
+	font-weight: 900;
+}
+
+.input,
+.textarea,
+.select {
+	width: 100%;
+	border: 1px solid #e8e9f0;
+	border-radius: 10px;
+	padding: 10px 12px;
+	font-size: 14px;
+	outline: none;
+	background: #fff;
+}
+
+.select {
+	margin-top: -2px;
+	padding: 5px;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+	border-color: #5c4bff;
+	box-shadow: 0 0 0 3px rgba(92, 75, 255, 0.15);
+}
+
+.textarea {
+	resize: none;
+	min-height: 110px;
+}
+
+.modal-status {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 14px;
+}
+
+/* 우선순위 */
+.prioritys {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.priority-radio {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.priority {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 30px;
+	padding: 0 12px;
+	border-radius: 15px;
+	border: 1px solid #e8e9f0;
+	background: #fff;
+	font-size: 12px;
+	font-weight: 700;
+	cursor: pointer;
+	user-select: none;
+	transition:
+		background 0.2s ease,
+		border-color 0.2s ease,
+		color 0.2s ease;
+}
+
+.priority-radio:checked + .priority {
+	color: #fff;
+	border-color: transparent;
+}
+
+#high:checked + .priority-high,
+.badge-high {
+	color: #fff;
+	background: #e45774;
+}
+#mid:checked + .priority-mid,
+.badge-mid {
+	color: #fff;
+	background: #5c4bff;
+}
+#low:checked + .priority-low,
+.badge-low {
+	color: #fff;
+	background: #2fbf71;
+}
+
+/* 하단 버튼 */
+.modal-footer {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+	padding-top: 8px;
+}
+
+.btn-text {
+	border: none;
+	background: none;
+	color: #666;
+	font-weight: 700;
+	cursor: pointer;
+	padding: 10px 12px;
+	border-radius: 10px;
+}
+.btn-text:hover {
+	background: #f3f4f8;
+}
+
+.btn-primary {
+	border: none;
+	background: #5c4bff;
+	color: #fff;
+	font-weight: 600;
+	cursor: pointer;
+	padding: 10px 14px;
+	border-radius: 10px;
+}
+.btn-primary:hover {
+	background: #4a3bff;
+}

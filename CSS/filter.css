@@ -1,0 +1,80 @@
+/* 검색, 정렬 필터 */
+.sorting {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr auto;
+  gap: 12px;
+}
+.sort {
+  height: 40px;
+  padding-left: 20px;
+  border-radius: 24px;
+  border: 1px solid #e6e8ef;
+  font-size: 16px;
+}
+.search-wrap {
+  position: relative;
+}
+.search-wrap::after {
+  content: "🔍";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.search {
+  width: 100%;
+  padding-left: 45px;
+  padding-right: 40px;
+}
+.search:focus::placeholder {
+  color: transparent;
+}
+.xbtn {
+  position: absolute;
+
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background-color: #fff;
+  display: none;
+  cursor: pointer;
+}
+.search-wrap:focus-within .xbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.filter {
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none; /* 크롬, 사파리, 엣지 (WebKit/Blink 계열) */
+  -moz-appearance: none; /* 파이어폭스 전용 */
+
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'><path d='M1 1 L6 7 L11 1' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 14px 16px;
+}
+.filter::after {
+  position: absolute;
+  content: "▾";
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.add-btn {
+  padding: 0 20px;
+  background-color: #8b7dff;
+  color: #fff;
+  transition: background-color 0.3s ease-in-out;
+}
+.add-btn:hover {
+  background-color: #7566f0;
+}

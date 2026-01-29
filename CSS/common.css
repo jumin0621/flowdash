@@ -1,0 +1,76 @@
+/* ============== 
+		공통 설정
+============== */
+body {
+	font-family:
+		system-ui,
+		-apple-system,
+		Segoe UI,
+		Roboto,
+		Arial,
+		sans-serif;
+	background: #fff;
+	color: #000;
+}
+
+.container {
+	width: min(1200px, 92%);
+	margin: 30px auto;
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	position: relative;
+	z-index: 1;
+}
+
+.box {
+	background: rgba(255, 255, 255, 0.92);
+	border: 2px solid #eee7ff;
+	border-radius: 14px;
+	padding: 16px;
+	box-shadow: 0 16px 38px rgba(20, 16, 40, 0.08);
+
+	transition:
+		transform 0.16s ease,
+		box-shadow 0.16s ease,
+		border-color 0.16s ease;
+}
+
+.box:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 20px rgba(20, 16, 40, 0.15);
+}
+
+.copyright-footer {
+	margin-top: 30px;
+	padding: 20px 0;
+	border-top: 1px solid #fff;
+}
+
+.copyright {
+	display: block;
+	text-align: center;
+	font-size: 12px;
+	color: rgba(17, 17, 17, 0.8);
+	letter-spacing: 0.2px;
+}
+
+/* Button Hover (공통) */
+.pill-btn:hover,
+.btn:hover,
+.add-btn:hover,
+.togg-icon-btn:hover,
+.close:hover {
+    transform: translateY(-1px);
+    box-shadow:
+        0 0 0 1px rgba(139, 125, 255, 0.18),
+        0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+/* 카드 그림자 보강 (라이트 모드) */
+.box,
+.todo-card,
+.progress-card,
+.done-card {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}

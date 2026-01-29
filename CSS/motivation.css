@@ -1,0 +1,254 @@
+/* ============ Motivation ============ */
+.progressCard {
+	padding: 24px 20px;
+}
+
+/* 오늘도 한 걸음 타이틀 */
+.progressHeader {
+	margin-bottom: 15px;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+/* 오늘의 다짐 박스 */
+.myLineBox {
+	margin-bottom: 15px;
+	display: flex;
+	align-items: center;
+	border: 1px solid #e6e8ef;
+	border-radius: 12px;
+	padding: 8px 12px;
+	background: #fff;
+}
+.myLineInput {
+	flex: 1;
+	border: none;
+	outline: none;
+	font-size: 23px;
+	font-weight: 1000;
+}
+
+.myLineInput::placeholder {
+	color: #c7cbd8;
+	opacity: 1;
+}
+
+.myLineActions {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.pill-btn {
+    border: 1px solid #e6e8ef;
+    border-radius: 999px;         
+    background: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    height: 40px;
+    padding: 0 16px;              
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.pill-btn-primary {
+    background: #6CB6FF;
+    color: #fff;
+    border: none;
+}
+
+/* 삭제 버튼 호버 */
+.pill-btn:hover {
+    background: #f6f8fc;
+    border-color: #d9deea;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* 저장 버튼 호버 */
+.pill-btn-primary:hover {
+    background: #3A8DE0;                
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 4px 10px rgba(159, 230, 255, 0.45);
+}
+
+/* 저장 버튼 클릭 */
+.pill-btn-primary:active {
+    background: #0368cc;
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 2px 4px rgba(159, 230, 255, 0.35);
+}
+
+/* 명언 */
+.quoteLine {
+	padding-bottom: 70px;
+	display: flex;
+	justify-content: space-between;
+}
+.quoteLineText,
+.quoteLineMeta {
+	font-size: 16px;
+	color: #757272;
+}
+
+.quoteLineText {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 75%;
+}
+
+/* 달성률 게이지바 */
+.progressRow {
+	display: flex;
+	align-items: center;
+	gap: 30px;
+	margin-top: 14px;
+	padding: 0;
+}
+.progressBar {
+	position: relative;
+	flex: 1;
+	height: 20px;
+	border-radius: 999px;
+	background: #e9ecf5;
+	overflow: visible;
+}
+
+.progressFill {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    height: 100%;
+    width: 0%;
+
+    border-radius: inherit;
+    z-index: 1;
+
+    background: linear-gradient(
+        90deg,
+        #f6c1d1 0%,
+        #f3b3cc 35%,
+        #e8a8d4 70%,
+        #d7a6e8 100%
+    );
+
+    /* 선택: 은은한 발광 */
+    box-shadow: 0 0 12px rgba(232, 168, 212, 0.45);
+
+    transition: width 0.4s ease;
+}
+
+
+/* 토끼 캐릭터 + 별가루 폭죽 */
+.progressChar {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 85px;
+    height: auto;
+
+    transform: translate(-50%, -75%);
+    transform-origin: 50% 70%;
+
+    z-index: 3;
+    pointer-events: auto;
+
+    transition:
+        left 0.4s ease,
+        transform 0.18s ease,
+        filter 0.25s ease;
+
+    will-change: transform, filter;
+}
+
+/* 호버 효과: 살짝 확대 + 밤하늘 느낌 글로우 */
+.progressChar:hover {
+    transform: translate(-50%, -75%) scale(1.25);
+
+    filter:
+        drop-shadow(0 0 6px rgba(120, 130, 255, 0.35))
+        drop-shadow(0 0 14px rgba(80, 90, 200, 0.25))
+        drop-shadow(0 0 26px rgba(40, 50, 120, 0.35));
+}
+
+/* 토끼 이미지 */
+.progressCharImg {
+    position: relative;
+    z-index: 2;             
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* 폭죽 레이어: 토끼 뒤 */
+.fireworks-layer {
+    position: absolute;
+    inset: -60px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    filter: drop-shadow(0 0 14px rgba(120, 130, 255, 0.45));
+}
+
+/* ✅ 연속 폭죽(배경 점 + infinite 애니메이션 같이) */
+.fireworks-layer.is-on {
+    opacity: 1;
+
+    /* 별가루 점(이게 없으면 아무 것도 안 보임) */
+    background:
+        radial-gradient(circle at 12% 18%, rgba(159,230,255,0.95) 0 3px, transparent 4px),
+        radial-gradient(circle at 22% 10%, rgba(255,255,255,0.85) 0 2px, transparent 3px),
+        radial-gradient(circle at 32% 22%, rgba(139,125,255,0.95) 0 3px, transparent 4px),
+        radial-gradient(circle at 42% 12%, rgba(255,159,190,0.95) 0 3px, transparent 4px),
+        radial-gradient(circle at 52% 20%, rgba(127,232,207,0.95) 0 3px, transparent 4px),
+        radial-gradient(circle at 62% 10%, rgba(255,208,178,0.95) 0 3px, transparent 4px),
+        radial-gradient(circle at 72% 22%, rgba(159,230,255,0.95) 0 3px, transparent 4px),
+        radial-gradient(circle at 82% 14%, rgba(255,255,255,0.75) 0 2px, transparent 3px),
+
+        radial-gradient(circle at 10% 42%, rgba(255,159,190,0.92) 0 3px, transparent 4px),
+        radial-gradient(circle at 20% 55%, rgba(139,125,255,0.92) 0 3px, transparent 4px),
+        radial-gradient(circle at 30% 45%, rgba(127,232,207,0.92) 0 3px, transparent 4px),
+        radial-gradient(circle at 40% 58%, rgba(255,255,255,0.78) 0 2px, transparent 3px),
+        radial-gradient(circle at 50% 44%, rgba(255,208,178,0.92) 0 3px, transparent 4px),
+        radial-gradient(circle at 60% 56%, rgba(159,230,255,0.92) 0 3px, transparent 4px),
+        radial-gradient(circle at 70% 46%, rgba(255,159,190,0.92) 0 3px, transparent 4px),
+        radial-gradient(circle at 80% 56%, rgba(139,125,255,0.92) 0 3px, transparent 4px),
+        radial-gradient(circle at 90% 44%, rgba(255,255,255,0.70) 0 2px, transparent 3px),
+
+        radial-gradient(circle at 14% 82%, rgba(255,208,178,0.90) 0 3px, transparent 4px),
+        radial-gradient(circle at 24% 72%, rgba(127,232,207,0.90) 0 3px, transparent 4px),
+        radial-gradient(circle at 34% 86%, rgba(159,230,255,0.90) 0 3px, transparent 4px),
+        radial-gradient(circle at 44% 74%, rgba(255,159,190,0.90) 0 3px, transparent 4px),
+        radial-gradient(circle at 54% 88%, rgba(139,125,255,0.90) 0 3px, transparent 4px),
+        radial-gradient(circle at 64% 74%, rgba(255,255,255,0.75) 0 2px, transparent 3px),
+        radial-gradient(circle at 74% 86%, rgba(127,232,207,0.90) 0 3px, transparent 4px),
+        radial-gradient(circle at 84% 76%, rgba(255,208,178,0.90) 0 3px, transparent 4px);
+
+    animation: starFireworks 0.6s ease-in-out infinite;
+}
+
+@keyframes starFireworks {
+    0%   { opacity: 0.0; transform: scale(0.75); }
+    30%  { opacity: 1.0; transform: scale(1.00); }
+    70%  { opacity: 1.0; transform: scale(1.05); }
+    100% { opacity: 0.0; transform: scale(0.90); }
+}

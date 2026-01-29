@@ -1,0 +1,166 @@
+/* ============ Header ============ */
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 24px;
+}
+
+.greeting {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.greeting-title {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	gap: 8px;
+	font-size: 25px;
+	font-weight: 600;
+}
+
+#greetingMessage,
+.nickname-suffix {
+    font-size: 20px;
+}
+
+.greeting-sub {
+	font-size: 12px;
+	color: #777;
+}
+
+/* Nickname (inline edit) */
+.nickname-wrap {
+	display: inline-flex;
+	gap: 6px;
+	align-items: center;
+}
+
+/* 닉네임 텍스트 */
+#nicknameText {
+	color: #8b7dff;
+}
+
+/* 클릭해서 바로 수정 가능한 상태를 위한 클래스 */
+.nickname-text {
+	display: inline-block;
+	padding: 2px 6px;
+	border-radius: 8px;
+	cursor: text;
+	outline: none;
+	border: 1px solid transparent;
+}
+
+/* 편집 중(포커스) 표시 */
+.nickname-text.is-editing {
+	background: rgba(139, 125, 255, 0.1);
+	border-color: rgba(139, 125, 255, 0.35);
+}
+
+.nickname-icon {
+	font-size: 20px;
+	opacity: 0.8;
+	user-select: none;
+	pointer-events: none; /* 클릭/포커스 불가 */
+
+	animation: none;
+}
+
+.nickname-wrap:hover .nickname-icon {
+	animation: pencilMultiRotate5s 3s linear infinite;
+}
+
+@keyframes pencilMultiRotate5s {
+	0% {
+		transform: rotate(0deg);
+	}
+	60% {
+		transform: rotate(1080deg);
+	}
+	100% {
+		transform: rotate(1080deg);
+	}
+}
+
+/* Buttons  */
+.togg-icon-btn,
+.btn {
+    border: 1px solid #e6e8ef;
+    border-radius: 10px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* 테마 토글 */
+.togg-icon-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+
+    animation: none;
+    transition:
+        transform 0.25s ease,
+        background-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+/* hover 시 효과 */
+.togg-icon-btn:hover {
+    animation: softGlow 2s ease-in-out infinite;
+    transform: translate(-4px, 4px) rotate(8deg);
+}
+
+/* 라이트 모드일 때만 핑크보라 빛 애니메이션으로 교체 */
+:root[data-theme="light"] .togg-icon-btn:hover {
+    animation: softGlowPink 2s ease-in-out infinite;
+}
+
+/* 다크 모드용 */
+@keyframes softGlow {
+    0% {
+        box-shadow:
+            0 0 12px rgba(255, 215, 0, 0.45),
+            0 0 24px rgba(255, 215, 0, 0.25);
+    }
+    50% {
+        box-shadow:
+            0 0 18px rgba(255, 215, 0, 0.6),
+            0 0 32px rgba(255, 215, 0, 0.35);
+    }
+    100% {
+        box-shadow:
+            0 0 12px rgba(255, 215, 0, 0.45),
+            0 0 24px rgba(255, 215, 0, 0.25);
+    }
+}
+
+/* 라이트 모드용 (핑크보라 빛) */
+@keyframes softGlowPink {
+    0% {
+        box-shadow:
+            0 0 12px rgba(139, 125, 255, 0.45),
+            0 0 24px rgba(139, 125, 255, 0.25);
+    }
+    50% {
+        box-shadow:
+            0 0 18px rgba(139, 125, 255, 0.6),
+            0 0 32px rgba(139, 125, 255, 0.35);
+    }
+    100% {
+        box-shadow:
+            0 0 12px rgba(139, 125, 255, 0.45),
+            0 0 24px rgba(139, 125, 255, 0.25);
+    }
+}
+
+/* 일반 버튼 */
+.btn {
+    height: 44px;
+    font-weight: 700;
+    background: #eef1ff;
+}

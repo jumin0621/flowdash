@@ -1,0 +1,187 @@
+/* =======================
+	 태블릿 
+	======================== */
+@media (max-width: 1199px) {
+	/* 대시보드 통계 */
+	.summary {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.bot-left {
+		grid-column: 1;
+	}
+	.bot-right {
+		grid-column: 3;
+	}
+	.stat {
+		font-size: 18px;
+	}
+	.stat-line:hover {
+		transform: none;
+	}
+	.stat-line:active {
+		transform: scale(1.1);
+	}
+
+	/* 검색 필터 정렬 */
+	.sorting {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.search-wrap {
+		grid-column: 1/3;
+		grid-row: 1;
+	}
+	.add-btn {
+		grid-column: 3/4;
+		grid-row: 1;
+	}
+	.select-filter,
+	.priority-filter,
+	.title-sort {
+		grid-row: 2;
+	}
+	.add-btn:hover {
+		background-color: none;
+	}
+	.add-btn:active {
+		background-color: #7566f0;
+	}
+
+	/* 칸반보드 */
+	.board {
+		grid-template-columns: 1fr;
+	}
+
+	.todo-card,
+	.progress-card,
+	.done-card {
+		height: 240px;
+	}
+}
+
+/* =======================
+	 모바일 
+	======================== */
+@media (max-width: 767px) {
+	/* 대시보드 통계 */
+	.summary {
+		grid-template-columns: 1fr;
+	}
+	.bot-left,
+	.bot-right {
+		grid-column: 1 / -1;
+	}
+
+	/* 검색 필터 정렬 */
+	.sorting {
+		grid-template-columns: 1fr;
+	}
+	.search-wrap,
+	.add-btn,
+	.select-filter,
+	.priority-filter,
+	.title-sort {
+		grid-column: 1 / -1;
+		grid-row: auto;
+	}
+
+	/* 헤더: 좌(텍스트) 우(토글) */
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    /* 왼쪽 텍스트 영역: 세로 스택 */
+    .greeting {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        min-width: 0;
+        flex: 1;
+    }
+
+    /* "오늘도 한 걸음, Task Overflow님" 줄 쪼개기 */
+    .greeting-title {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 4px;
+        line-height: 1.25;
+    }
+
+    /* 인사 문구 */
+    #greetingMessage {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+
+    /* 닉네임 + 아이콘 */
+    .nickname-wrap {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        flex-wrap: nowrap;
+    }
+
+    /* 날짜 */
+    .greeting-sub {
+        display: block;
+        font-size: 0.85rem;
+        opacity: 0.8;
+        line-height: 1.2;
+    }
+
+    /* 오른쪽: 토글만 */
+    #themeToggleBtn {
+        flex-shrink: 0;
+        margin-left: auto;
+    }
+
+    /* 카드 기준점 확정 */
+    section.box.progressCard {
+        position: relative !important;
+        overflow: visible;
+    }
+
+    /* 버튼이 들어있는 액션 영역 자체를 레이아웃에서 분리 */
+    section.box.progressCard .myLineActions {
+        position: absolute !important;
+        top: 16px !important;
+        right: 16px !important;
+        transform: translateY(-5px);
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 6px;
+
+        width: auto;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        z-index: 999 !important;
+    }
+
+    /* 상태 텍스트 숨김 */
+    section.box.progressCard .myLineStatus {
+        display: none;
+    }
+
+    /* 버튼 사이즈 */
+    section.box.progressCard .myLineActions .pill-btn {
+        padding: 4px 10px;
+        font-size: 0.8rem;
+        border-radius: 999px;
+        white-space: nowrap;
+    }
+
+    /* 헤더 텍스트가 버튼이랑 겹치지 않게 공간 확보 */
+    section.box.progressCard .progressHeader {
+        padding-right: 140px;
+    } 
+}
