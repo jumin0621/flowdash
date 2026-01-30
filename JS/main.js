@@ -9,9 +9,10 @@ import {
   cleanNickname,
   applyTheme,
   showMyLine,
+  showDailyQuote,
 } from "./render.js";
 
-import { pickRandom, greetingList, nickIconList } from "./api.js";
+import { pickRandom, greetingList, nickIconList, fetchQuote } from "./api.js";
 
 import { bindNicknameEdit } from "./modal.js";
 
@@ -225,3 +226,5 @@ initNickname();
 showTodayDate(); 
 bindNicknameEdit(); 
 initMyLine();
+
+initDailyQuote();
